@@ -5,13 +5,10 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Login from './components/login/login';
 function App() {
   return (
-    <div className='App'>
-      <div className="container">
-        <text>AppName</text>
-      </div>
+    <div className='App docs-app-background'>
 
       <div className='auth-wrapper'>
-        <div className="auth-inner">
+        <div className="auth-inner ">
           <Login></Login>
         </div>
       </div>

@@ -3,7 +3,7 @@ import "./login.css"
 export default function Login() {
     return (
         <form>
-            <img width="100%" className="app-logo" src={require("../../assets/june.jpg")} />
+            <img width="100%" className="app-logo" src={require("../../assets/app_logo.png")} />
             <div className="mb-3">
                 <input
                     type="text"
@@ -21,7 +21,7 @@ export default function Login() {
             </div>
 
             <div className="d-grid">
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn btn-secondary">
                     login
                 </button>
             </div>
