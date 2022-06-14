@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const SubmitButton = styled.button`
-/* CSS */
   align-items: center;
   appearance: none;
   background-color: #3EB2FD;

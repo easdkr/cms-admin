@@ -4,11 +4,13 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
+import { GlobalStyle } from 'pages/Login/styles';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <BrowserRouter>
+    <GlobalStyle />
     <Routes>
       <Route path="/" element={<Login />} >
       </Route>
