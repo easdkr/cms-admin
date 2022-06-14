@@ -1,6 +1,6 @@
+import { ItemBox } from "components/atoms/FormItemBox";
 import Input from "components/atoms/Input";
 import { ChangeEventHandler, KeyboardEventHandler } from "react";
-import { ItemBox } from "./styles";
 interface Props {
     name: string;
     type: string;
@@ -8,7 +8,13 @@ interface Props {
     onChange: ChangeEventHandler<HTMLInputElement>;
     onKeyDown?: KeyboardEventHandler<HTMLInputElement>;
 }
-export default function FormInput({ name, type, placeholder, onChange, onKeyDown }: Props) {
+export default function FormInput({
+    name,
+    type,
+    placeholder,
+    onChange,
+    onKeyDown }: Props) {
+
     return (
         <ItemBox>
             <Input

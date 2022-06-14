@@ -1,6 +1,6 @@
+import { ItemBox } from "components/atoms/FormItemBox";
 import { SubmitButton } from "components/atoms/SubmitButton";
 import { MouseEventHandler } from "react";
-import { ItemBox } from "../FormInput/styles";
 
 interface Props {
     text: string;

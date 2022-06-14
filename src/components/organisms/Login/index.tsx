@@ -1,8 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { SubmitButton } from "components/atoms/SubmitButton";
 import { AppLogoImage } from "./styles";
 import useAuth from "./hooks/useAuth";
-import Input from "components/atoms/Input";
 import FormInput from "components/molecules/FormInput";
 import FormButton from "components/molecules/FormButton";
 
@@ -19,6 +17,7 @@ export default function Login() {
                 placeholder="username"
                 onChange={handleInputChange}
             />
+
             <FormInput
                 name="password"
                 type="password"
@@ -26,6 +25,7 @@ export default function Login() {
                 onChange={handleInputChange}
                 onKeyDown={handleEnterKeyDown}
             />
+
             <FormButton
                 text="Login"
                 onClick={handleLogin}
