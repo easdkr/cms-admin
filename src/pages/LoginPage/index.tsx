@@ -3,7 +3,7 @@ import Login from "components/organisms/Login";
 import { LoginLayout, LoginBox, LoginItem } from "./styles";
 
 
-function App() {
+function LoginPage() {
   return (
     <>
       <LoginLayout>
@@ -17,4 +17,4 @@ function App() {
   );
 }
 
-export default App;
+export default LoginPage;

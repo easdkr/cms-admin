@@ -1,9 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AppLogoImage } from "./styles";
-import useAuth from "./hooks/useAuth";
 import FormInput from "components/molecules/FormInput";
 import FormButton from "components/molecules/FormButton";
-
+import useAuth from "hooks/useAuth";
+import { Link } from "react-router-dom";
 
 export default function Login() {
     const { handleInputChange, handleLogin, handleEnterKeyDown } = useAuth();
@@ -11,6 +11,7 @@ export default function Login() {
     return (
         <>
             <AppLogoImage width="100%" src="app_logo.png" alt="App Logo Image" />
+
             <FormInput
                 name="username"
                 type="text"
@@ -25,7 +26,6 @@ export default function Login() {
                 onChange={handleInputChange}
                 onKeyDown={handleEnterKeyDown}
             />
-
             <FormButton
                 text="Login"
                 onClick={handleLogin}
