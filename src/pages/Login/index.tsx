@@ -1,5 +1,5 @@
 
-import Login from "components/organisms/Login";
+import LoginForm from "components/organisms/LoginForm";
 import { LoginLayout, LoginBox, LoginItem } from "./styles";
 
 
@@ -9,7 +9,7 @@ function LoginPage() {
       <LoginLayout>
         <LoginBox>
           <LoginItem>
-            <Login />
+            <LoginForm />
           </LoginItem>
         </LoginBox>
       </LoginLayout>

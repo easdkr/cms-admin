@@ -5,7 +5,7 @@ import FormButton from "components/molecules/FormButton";
 import useAuth from "hooks/useAuth";
 import { Link } from "react-router-dom";
 
-export default function Login() {
+export default function LoginForm() {
     const { handleInputChange, handleLogin, handleEnterKeyDown } = useAuth();
 
     return (

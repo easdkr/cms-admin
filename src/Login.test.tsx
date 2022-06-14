@@ -1,11 +1,11 @@
 
 import { fireEvent, render } from "@testing-library/react";
-import LoginPage from "./pages/LoginPage";
+import Login from "pages/Login";
 
 describe("<LoginPage/>", () => {
     it("login test", () => {
         const { getByPlaceholderText, getByText } = render(
-            <LoginPage />
+            <Login />
         );
         const usernameInput = getByPlaceholderText("username");
         const passwordInput = getByPlaceholderText("password");
