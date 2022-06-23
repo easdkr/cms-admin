@@ -1,21 +1,32 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Login from './pages/Login';
 import { GlobalStyle } from 'styles';
-import ContentsPage from 'pages/ContentsPage';
+import { RecoilRoot } from 'recoil';
+import Main from 'pages/Main';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import SignInPage from 'pages/SignInPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+const darktheme = createTheme({
+  palette: {
+    mode: 'dark',
+  }
+})
+
 root.render(
   <BrowserRouter>
-    <GlobalStyle />
-    <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/contents" element={<ContentsPage />} />
-    </Routes>
+    <RecoilRoot>
+      <ThemeProvider theme={darktheme}>
+        <GlobalStyle />
+        <Routes>
+          <Route path="/signin" element={<SignInPage />} />
+          <Route path='*' element={<Main />} />
+        </Routes>
+      </ThemeProvider>
+    </RecoilRoot>
   </BrowserRouter>
 );
 

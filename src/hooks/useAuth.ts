@@ -1,12 +1,14 @@
-import { AxiosResponse } from "axios";
-import React, { useState } from "react";
+import { getToken } from "apis/auth";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import HttpClient from "services/httpClient";
+import { useSetRecoilState } from "recoil";
 import { AuthStorage } from "services/storages";
-import routes from "utils/constants/routes";
+import { tokenState } from "stores/token";
 
 export default function useAuth() {
     const navigate = useNavigate();
+    const setToken = useSetRecoilState(tokenState);
+
     const [account, setAccount] = useState({
         username: "",
         password: ""
@@ -22,23 +24,25 @@ export default function useAuth() {
     }
 
     const handleLogin = async () => {
-        const url = routes.LOGIN;
+
         const payload = {
             username: account.username,
             password: account.password
         }
 
-        const res = await HttpClient.post(url, payload) as AxiosResponse<any>
+        const res = await getToken(payload);
 
         if (res && res.data.token) {
-            AuthStorage.set(res.data.token);
-            navigate('/contents');
+            const token = res.data.token;
+            AuthStorage.set(token);
+            setToken(token);
+            navigate('/');
         }
     }
 
     const handleLogout = () => {
         AuthStorage.remove();
-        navigate('/')
+        navigate('/signin')
     }
 
     return {

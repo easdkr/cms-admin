@@ -5,6 +5,9 @@ import axios, {
   AxiosResponse
 }
   from "axios";
+import { useRecoilValue } from "recoil";
+import { tokenState } from "stores/token";
+import { AuthStorage } from "./storages";
 
 
 const httpClient: AxiosInstance = axios.create({
@@ -14,6 +17,8 @@ const httpClient: AxiosInstance = axios.create({
 
 //request interceptor
 httpClient.interceptors.request.use((config: AxiosRequestConfig) => {
+  const token = AuthStorage.get();
+  config.headers['Authorization'] = `Bearer ${token}`;
   return config;
 });
 
@@ -26,5 +31,6 @@ httpClient.interceptors.response.use(
     return Promise.reject(error);
   },
 );
+
 
 export default httpClient;

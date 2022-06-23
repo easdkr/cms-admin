@@ -1,3 +1,5 @@
-export default {
-    AUTH: 'auth/token'
+const keys = {
+    AUTH: 'auth/token',
 }
+
+export default keys;
