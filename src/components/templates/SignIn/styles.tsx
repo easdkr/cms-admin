@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import Colors from "utils/styles/colors"
 
 export const SignInContainer = styled.div`
     display: flex;
@@ -11,7 +12,7 @@ export const SignInBox = styled.div`
     width: 300px;
     height: 280px;
     margin: auto;
-    background: #282c32;
+    background: ${Colors.SIGN_IN_FORM};
     padding: 20px 25px 20px 25px;
     border-radius: 15px;
     transition: all 0.3s;

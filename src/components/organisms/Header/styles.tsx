@@ -1,62 +1,70 @@
 import styled from "styled-components";
+import Colors from "utils/styles/colors";
+import Size from "utils/styles/size";
 
 const HeaderLayout = styled.div<{ backgroundColor: string }>`
     max-width: 100%;
     display: flex;
     align-items: center;
     background-color: ${props => props.backgroundColor};
-    @media screen and (max-width: 768px) {
+
+    @media screen and (max-width: ${Size.TABLET_SIZE}) {
         flex-wrap: wrap;
         justify-content: space-between;
     }
 `;
 
-const LogoBox = styled.div`
-    margin : 1rem 0.2rem 0rem 0.5rem;
+const LogoBox = styled.div<{ largeWidthOrder: number, smallWidthOrder: number }>`
     width: 150px;
-    order: 2;
+    margin: 0.5rem;
+    order: ${props => props.largeWidthOrder}; //1
+    @media screen and (max-width: ${Size.TABLET_SIZE}) {
+        order: ${props => props.smallWidthOrder}; //2
+    }
 `
 
-const LogoutBox = styled.div`
+const LogoutBox = styled.div<{ largeWidthOrder: number, smallWidthOrder: number }>`
     display: flex;
-    padding-left: 2rem;
-    order: 3;
-    font-size: 1.5rem;
+    align-content: center;
+    padding: 1rem 1rem;
+    order: ${props => props.largeWidthOrder}; //3
+    @media screen and (max-width: ${Size.TABLET_SIZE}) {
+        order: ${props => props.smallWidthOrder}; //3
+    }
 `
 
 const ToggleBox = styled.div`
     display: none;
-    font-size: 1.5rem;
     padding: 1rem 1rem;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: ${Size.TABLET_SIZE}) {
         display: block;
     }
 `
 
-const MenuList = styled.ul<{ isToggled: boolean }>`
+const MenuBox = styled.ul<{ isToggled: boolean, largeWidthOrder: number, smallWidthOrder: number }>`
     list-style: none;
     display: flex;
     padding-left: 0;
-    margin-top: 1rem;
-    order: 2;
-    @media screen and (max-width: 768px) {
+    order: ${props => props.largeWidthOrder}; //2
+    @media screen and (max-width: ${Size.TABLET_SIZE}) {
         flex-direction: column;
         width: 100%;
-        order: 4;
+        order: ${props => props.smallWidthOrder}; //4;
         display : ${props => `${props.isToggled ? "flex" : "none"}`}
     }
 `
 
 const MenuItem = styled.li`
     padding-left:1rem;
-    font-size: 15px;
-    color: cyan;
+    color: white;
+
     :hover{
-        font-size: 17px;
-        color: gray;
+        color: ${Colors.MENU_HOVER};
         font-weight: bold;
+        cursor: pointer;
     }
-    @media screen and (max-width: 768px) {
+
+    @media screen and (max-width: ${Size.TABLET_SIZE}) {
         margin: .5rem 0;
         padding: 0;
     }
@@ -67,7 +75,7 @@ export {
     HeaderLayout,
     LogoBox,
     ToggleBox,
-    MenuList,
+    MenuBox,
     MenuItem,
     LogoutBox
 }

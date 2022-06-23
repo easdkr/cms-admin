@@ -1,6 +1,7 @@
 
 
 import SignInForm from "components/organisms/SignInForm";
+import Colors from "utils/styles/colors";
 import { SignInBox, SignInContainer } from "./styles";
 
 interface Props {

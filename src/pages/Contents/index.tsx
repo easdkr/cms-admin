@@ -1,10 +1,4 @@
 import CardForm from "components/molecules/CardForm";
-import Header from "components/organisms/Header";
-import useAuth from "hooks/useAuth";
-import useContents from "hooks/useContents";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { AuthStorage } from "services/storages"
 
 export default function Contents() {
     return (

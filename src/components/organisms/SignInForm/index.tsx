@@ -51,8 +51,7 @@ export default function SignInForm({
                     fontColor={'#FFF'}
                     color={'info'}
                     variant={"contained"}
-                    onClick={async () => { await handleLogin() }}
-
+                    onClick={handleLogin}
                 />
             </Box>
         </>

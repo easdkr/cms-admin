@@ -5,11 +5,10 @@ import { SystemStyleObject, ResponsiveStyleValue, ColorObject } from "@mui/syste
 interface Props extends ButtonProps {
     fontColor: SystemStyleObject<Theme> | ResponsiveStyleValue<any>;
     fontSize?: SystemStyleObject<Theme> | ResponsiveStyleValue<any>;
-
 }
 
 export const StyledTextButton = ({
-    fontColor, children, variant, color, fontSize }: Props) => (
+    fontColor, children, variant, color, fontSize, onClick }: Props) => (
     <Button
         sx={{
             color: fontColor,
@@ -18,6 +17,7 @@ export const StyledTextButton = ({
         }}
         variant={variant}
         color={color}
+        onClick={onClick}
     >
         {children}
     </Button >
