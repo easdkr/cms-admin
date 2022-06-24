@@ -2,13 +2,13 @@ import { Button, ButtonProps } from "@mui/material";
 import { MouseEventHandler } from "react";
 import { StyledTextButton } from "./styles";
 
-interface Props extends ButtonProps {
+export interface SimpleButtonProps extends ButtonProps {
     text: string;
     fontColor?: any;
     fontSize?: any;
 }
 
-export default function index(props: Props) {
+export default function index(props: SimpleButtonProps) {
     return (
         <StyledTextButton
             variant={props.variant}

@@ -8,7 +8,7 @@ const HeaderLayout = styled.div<{ backgroundColor: string }>`
     align-items: center;
     background-color: ${props => props.backgroundColor};
 
-    @media screen and (max-width: ${Size.TABLET_SIZE}) {
+    @media screen and (max-width: ${Size.TABLET}) {
         flex-wrap: wrap;
         justify-content: space-between;
     }
@@ -18,7 +18,7 @@ const LogoBox = styled.div<{ largeWidthOrder: number, smallWidthOrder: number }>
     width: 150px;
     margin: 0.5rem;
     order: ${props => props.largeWidthOrder}; //1
-    @media screen and (max-width: ${Size.TABLET_SIZE}) {
+    @media screen and (max-width: ${Size.TABLET}) {
         order: ${props => props.smallWidthOrder}; //2
     }
 `
@@ -28,7 +28,7 @@ const LogoutBox = styled.div<{ largeWidthOrder: number, smallWidthOrder: number 
     align-content: center;
     padding: 1rem 1rem;
     order: ${props => props.largeWidthOrder}; //3
-    @media screen and (max-width: ${Size.TABLET_SIZE}) {
+    @media screen and (max-width: ${Size.TABLET}) {
         order: ${props => props.smallWidthOrder}; //3
     }
 `
@@ -36,7 +36,7 @@ const LogoutBox = styled.div<{ largeWidthOrder: number, smallWidthOrder: number 
 const ToggleBox = styled.div`
     display: none;
     padding: 1rem 1rem;
-    @media screen and (max-width: ${Size.TABLET_SIZE}) {
+    @media screen and (max-width: ${Size.TABLET}) {
         display: block;
     }
 `
@@ -46,7 +46,7 @@ const MenuBox = styled.ul<{ isToggled: boolean, largeWidthOrder: number, smallWi
     display: flex;
     padding-left: 0;
     order: ${props => props.largeWidthOrder}; //2
-    @media screen and (max-width: ${Size.TABLET_SIZE}) {
+    @media screen and (max-width: ${Size.TABLET}) {
         flex-direction: column;
         width: 100%;
         order: ${props => props.smallWidthOrder}; //4;
@@ -64,7 +64,7 @@ const MenuItem = styled.li`
         cursor: pointer;
     }
 
-    @media screen and (max-width: ${Size.TABLET_SIZE}) {
+    @media screen and (max-width: ${Size.TABLET}) {
         margin: .5rem 0;
         padding: 0;
     }

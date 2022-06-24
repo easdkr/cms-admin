@@ -9,6 +9,6 @@ body {
     width: 100%;
     height: 100%;
     background: ${Colors.BACKGROUND};
-    min-width: ${Size.MIN_SIZE};
+    min-width: ${Size.MIN_WIDTH};
 }
 `

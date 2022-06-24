@@ -1,6 +1,10 @@
 const Size = {
-    MIN_SIZE: `300px`,
-    TABLET_SIZE: `768px`
+    MIN_WIDTH: `300px`,
+    TABLET: `768px`,
+    card: {
+        WIDTH: `20vmin`,
+        HEIGHT: `20vmax`,
+    }
 }
 
 export default Size;
