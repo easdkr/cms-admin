@@ -1,5 +1,3 @@
-import { faBars, faSignOut } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LogoImage from "components/atoms/LogoImage";
 import useAuth from "hooks/useAuth";
 import { useEffect, useState, useTransition } from "react";
@@ -8,9 +6,7 @@ import Colors from "utils/styles/colors";
 import { HeaderLayout, LogoBox, LogoutBox, MenuBox, MenuItem, ToggleBox } from "./styles";
 import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
-import { Button, debounce } from "@mui/material";
 import SimpleButton from "components/atoms/SimpleButton";
-import Size from "utils/styles/size";
 export default function Header() {
     const [isToggled, setIsToggled] = useState(false);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);

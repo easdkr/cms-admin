@@ -17,6 +17,7 @@ const httpClient: AxiosInstance = axios.create({
 
 //request interceptor
 httpClient.interceptors.request.use((config: AxiosRequestConfig) => {
+
   const token = AuthStorage.get();
   config.headers['Authorization'] = `Bearer ${token}`;
   return config;

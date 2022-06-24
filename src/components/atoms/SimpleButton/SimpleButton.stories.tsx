@@ -2,7 +2,7 @@ import { Meta, Story } from "@storybook/react";
 import SimpleButton, { SimpleButtonProps } from ".";
 
 export default {
-    title: 'SimpleButton',
+    title: 'Atoms/SimpleButton',
     component: SimpleButton
 } as Meta
 
