@@ -65,10 +65,9 @@ const MenuItem = styled.li`
     }
 
     @media screen and (max-width: ${Size.TABLET}) {
-        margin: .5rem 0;
+        margin: .5rem .5rem;
         padding: 0;
     }
-    
 `
 
 export {

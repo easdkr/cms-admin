@@ -1,5 +1,4 @@
 import { Button, ButtonProps, styled, Theme } from "@mui/material";
-import { FontStyle } from "@mui/material/styles/createTypography";
 import { SystemStyleObject, ResponsiveStyleValue, ColorObject } from "@mui/system";
 
 interface Props extends ButtonProps {

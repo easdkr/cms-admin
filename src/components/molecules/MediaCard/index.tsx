@@ -1,37 +1,25 @@
 
-import { Translate } from "@mui/icons-material";
-import { Box, Card, CardContent, CardMedia, SxProps, Theme, Typography } from "@mui/material";
-import { useState } from "react";
-import styled from "styled-components";
+import { Card, CardMedia, Typography } from "@mui/material";
 import Size from "utils/styles/size";
-import { CardContainer } from "./styled";
-// import Size from "utils/styles/size";
+import { CardTitle, CardLayout } from "./styles";
 
 export interface MediaCardProps {
     imageSource: string;
-    width?: any;
     title: string;
 }
 
-export default function MediaCard({ imageSource, width, title }: MediaCardProps) {
+export default function MediaCard({ imageSource, title }: MediaCardProps) {
     return (
         <>
-            <CardContainer maxWidth={width} padding={Size.card.CONTAINER_PADDING}>
+            <CardLayout>
+                <CardTitle>{title}</CardTitle>
                 <CardMedia
                     component="img"
-                    height="200"
+                    height={Size.card.MEDIA_HEIGHT}
                     image={imageSource}
-                    alt="Paella dish"
+                    alt={title}
                 />
-                {/* <CardContent>
-                    <Typography variant="body2" component={"div"}>
-                        {`${title}`}
-                    </Typography>
-                    <Typography variant="caption" component={"div"}>
-                        Category
-                    </Typography>
-                </CardContent> */}
-            </CardContainer>
+            </CardLayout>
         </>
     )
 };

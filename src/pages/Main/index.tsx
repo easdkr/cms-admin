@@ -1,5 +1,5 @@
 import Header from "components/organisms/Header";
-import Contents from "pages/Contents";
+import ContentsPage from "pages/ContentsPage";
 import { useEffect } from "react";
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import { RecoilRoot } from "recoil";
@@ -19,7 +19,7 @@ export default function Main() {
             <Header />
             <main>
                 <Routes>
-                    <Route path="/contents" element={<Contents />} />
+                    <Route path="/contents" element={<ContentsPage />} />
                 </Routes>
             </main>
         </>

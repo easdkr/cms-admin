@@ -1,4 +1,6 @@
 import { AxiosResponse } from "axios";
+import { ListResponse } from "models/commons";
+import { Content } from "models/contents";
 import httpClient from "services/httpClient"
 import paths from "utils/constants/paths"
 
@@ -13,5 +15,5 @@ export const getList = async (
     }
 
     return await httpClient.get(
-        paths.CONTENTS_LIST, { params: payload }) as AxiosResponse<any>;
+        paths.CONTENTS_LIST, { params: payload }) as AxiosResponse<ListResponse<Content>>;
 }
