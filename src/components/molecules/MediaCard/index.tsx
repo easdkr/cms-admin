@@ -6,12 +6,13 @@ import { CardTitle, CardLayout } from "./styles";
 export interface MediaCardProps {
     imageSource: string;
     title: string;
+    onClick: any;
 }
 
-export default function MediaCard({ imageSource, title }: MediaCardProps) {
+export default function MediaCard({ imageSource, title, onClick }: MediaCardProps) {
     return (
         <>
-            <CardLayout>
+            <CardLayout onClick={onClick}>
                 <CardTitle>{title}</CardTitle>
                 <CardMedia
                     component="img"

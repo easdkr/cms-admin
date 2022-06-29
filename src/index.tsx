@@ -11,7 +11,7 @@ import { AxiosInterceptor } from 'services/AxiosInterceptor';
 import Header from 'components/organisms/Header';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
+const baseTheme = createTheme()
 const darktheme = createTheme({
   palette: {
     mode: 'dark',

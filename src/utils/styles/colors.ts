@@ -7,6 +7,10 @@ const Colors = {
 
     Card: {
         CONTAINER: `divider`,
+    },
+
+    Modal: {
+        BACKGROUND: '#404040',
     }
 }
 
