@@ -1,4 +1,4 @@
-import { getToken } from "apis/auth";
+import { getToken, tokenCheck } from "apis/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
@@ -45,10 +45,19 @@ export default function useAuth() {
         navigate('/signin')
     }
 
+    const checkAuth = async () => {
+        const res = await tokenCheck();
+        if (res) {
+            console.log(res);
+            navigate('/');
+        }
+    }
+
     return {
         handleInputChange,
         handleLogin,
         handleEnterKeyDown,
-        handleLogout
+        handleLogout,
+        checkAuth
     };
 };

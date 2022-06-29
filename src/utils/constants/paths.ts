@@ -1,6 +1,9 @@
 
 const paths = {
-    SIGN_IN: '/auth/login',
+    auths: {
+        SIGN_IN: '/auth/login',
+        CHECK: '/auth/check',
+    },
     CONTENTS_LIST: '/contents'
 }
 

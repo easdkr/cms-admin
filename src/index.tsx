@@ -7,6 +7,8 @@ import { RecoilRoot } from 'recoil';
 import Main from 'pages/Main';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import SignInPage from 'pages/SignInPage';
+import { AxiosInterceptor } from 'services/AxiosInterceptor';
+import Header from 'components/organisms/Header';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -18,15 +20,18 @@ const darktheme = createTheme({
 
 root.render(
   <BrowserRouter>
-    <RecoilRoot>
-      <ThemeProvider theme={darktheme}>
-        <GlobalStyle />
-        <Routes>
-          <Route path="/signin" element={<SignInPage />} />
-          <Route path='*' element={<Main />} />
-        </Routes>
-      </ThemeProvider>
-    </RecoilRoot>
+    <AxiosInterceptor>
+      <RecoilRoot>
+        <ThemeProvider theme={darktheme}>
+          <GlobalStyle />
+          <Header />
+          <Routes>
+            <Route path="/signin" element={<SignInPage />} />
+            <Route path='*' element={<Main />} />
+          </Routes>
+        </ThemeProvider>
+      </RecoilRoot>
+    </AxiosInterceptor>
   </BrowserRouter>
 );
 

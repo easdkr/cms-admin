@@ -5,24 +5,24 @@ import Colors from "utils/styles/colors";
 import { SignInBox, SignInContainer } from "./styles";
 
 interface Props {
-  handleInputChange: (e: any) => void;
-  handleLogin: () => Promise<void>;
-  handleEnterKeyDown: (e: any) => void;
+  onInputChange: (e: any) => void;
+  onLogin: () => Promise<void>;
+  onEnterKeyDown: (e: any) => void;
 }
 
 function SignIn({
-  handleInputChange,
-  handleLogin,
-  handleEnterKeyDown
+  onInputChange,
+  onLogin,
+  onEnterKeyDown
 }: Props) {
   return (
     <>
       <SignInContainer>
         <SignInBox>
           <SignInForm
-            handleInputChange={handleInputChange}
-            handleLogin={handleLogin}
-            handleEnterKeyDown={handleEnterKeyDown}
+            onInputChange={onInputChange}
+            onLogin={onLogin}
+            onEnterKeyDown={onEnterKeyDown}
           />
         </SignInBox>
       </SignInContainer>

@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
+import httpClient from "services/AxiosInterceptor";
 import { ListResponse } from "models/commons";
 import { Content } from "models/contents";
-import httpClient from "services/httpClient"
 import paths from "utils/constants/paths"
 
 

@@ -1,5 +1,5 @@
 
-import { SignInBox, SignInContainer } from "@components/templates/SignIn/styles";
+import { SignInBox, SignInContainer } from "components/templates/SignIn/styles";
 import { createTheme } from "@mui/material";
 import { ThemeProvider } from "@mui/system";
 import { Meta, Story } from "@storybook/react";

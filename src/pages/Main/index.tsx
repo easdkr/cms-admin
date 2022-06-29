@@ -1,22 +1,22 @@
 import Header from "components/organisms/Header";
+import useContents from "hooks/useContents";
+import useMount from "hooks/useMount";
 import ContentsPage from "pages/ContentsPage";
-import { useEffect } from "react";
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
-import { RecoilRoot } from "recoil";
-import { AuthStorage } from "services/storages";
-import { GlobalStyle } from "styles";
+import { useEffect, useState } from "react";
+import { Route, Router, Routes, useLocation } from "react-router-dom";
 
 export default function Main() {
-    const nav = useNavigate();
+    const { handleGetList } = useContents();
+    const [init, setInitialize] = useState<any>();
+    const isMount = useMount();
+    const location = useLocation();
 
     useEffect(() => {
-        const token = AuthStorage.get();
-        if (!token) nav('/signin')
+        console.log(location.pathname);
     }, [])
 
     return (
         <>
-            <Header />
             <main>
                 <Routes>
                     <Route path="/contents" element={<ContentsPage />} />
