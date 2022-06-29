@@ -1,24 +1,15 @@
 import { Box, createTheme, Modal, Typography } from "@mui/material";
+import { ContentDetails } from "models/contents";
 import Strings from "utils/constants/strings";
 import { ContentsDetailLayout } from "./styles";
 
-const style = {
-    position: 'absolute' as 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-};
 interface Props {
     open: boolean;
     onClose: any;
+    contentDetails: ContentDetails
 }
 
-export default function ContentsDetails({ open, onClose }: Props) {
+export default function ContentsDetails({ open, onClose, contentDetails }: Props) {
     return (
         <Modal
             open={open}
@@ -32,6 +23,7 @@ export default function ContentsDetails({ open, onClose }: Props) {
                     gutterBottom
                 >
                     {Strings.contents.DETAIL_HEADER}
+                    {contentDetails && contentDetails.title}
                 </Typography>
             </ContentsDetailLayout>
         </Modal>

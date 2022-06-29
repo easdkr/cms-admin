@@ -11,7 +11,8 @@ export default function ContentsPage() {
     const {
         contents,
         handleContentsCardClick,
-        handleModalClose, modalOpen
+        handleModalClose, modalOpen,
+        contentDetails
     } = useContents();
 
     return (
@@ -20,7 +21,7 @@ export default function ContentsPage() {
                 onCardClick={handleContentsCardClick}
                 contents={contents}
             />
-            <ContentsDetails open={modalOpen} onClose={handleModalClose} />
+            <ContentsDetails contentDetails={contentDetails} open={modalOpen} onClose={handleModalClose} />
             {/* <Modal
                 open={modalOpen}
                 onClose={handleModalClose}

@@ -34,5 +34,6 @@ export default function useContents() {
         contents,
         modalOpen,
         handleModalClose,
+        contentDetails,
     };
 };
