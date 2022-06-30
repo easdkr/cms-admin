@@ -2,7 +2,7 @@
 import { createTheme } from "@mui/material";
 import { ThemeProvider } from "@mui/system";
 import { Meta, Story } from "@storybook/react";
-import { GlobalStyle } from "styles";
+import { darktheme, GlobalStyle } from "styles";
 import Size from "utils/styles/size";
 import MediaCard, { MediaCardProps } from ".";
 
@@ -11,11 +11,6 @@ export default {
     component: MediaCard
 } as Meta
 
-const darktheme = createTheme({
-    palette: {
-        mode: 'dark',
-    }
-})
 
 const Template: Story<MediaCardProps> = (args) => {
     return (

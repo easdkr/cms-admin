@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { GlobalStyle } from 'styles';
+import { darktheme, GlobalStyle } from 'styles';
 import { RecoilRoot } from 'recoil';
 import Main from 'pages/Main';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -11,12 +11,6 @@ import { AxiosInterceptor } from 'services/AxiosInterceptor';
 import Header from 'components/organisms/Header';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
-const darktheme = createTheme({
-  palette: {
-    mode: 'dark',
-  }
-})
 
 root.render(
   <BrowserRouter>

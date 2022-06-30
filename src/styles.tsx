@@ -1,3 +1,4 @@
+import { createTheme } from "@mui/material";
 import { createGlobalStyle } from "styled-components";
 import Colors from "utils/styles/colors";
 import Size from "utils/styles/size";
@@ -12,3 +13,9 @@ body {
     min-width: ${Size.MIN_WIDTH};
 }
 `
+
+export const darktheme = createTheme({
+    palette: {
+        mode: 'dark',
+    }
+});

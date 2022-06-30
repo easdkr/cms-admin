@@ -3,11 +3,10 @@ import useAuth from "hooks/useAuth";
 import { useEffect, useState, useTransition } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Colors from "utils/styles/colors";
-import { HeaderLayout, LogoBox, LogoutBox, MenuBox, MenuItem, ToggleBox } from "./styles";
+import { HeaderLayout, LogoBox, LogoutBox, MenuBox, MenuItem, SignOutButtonStyle, ToggleBox } from "./styles";
 import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
-import SimpleButton from "components/atoms/SimpleButton";
-import { useMediaQuery } from "@mui/material";
+import { Button, useMediaQuery } from "@mui/material";
 import Size from "utils/styles/size";
 
 interface SignOutButtonProps {
@@ -19,7 +18,7 @@ const SignOutButton = ({ handleLogout }: SignOutButtonProps) => {
     return (
         isTablet ?
             <ExitToAppRoundedIcon color="error" onClick={handleLogout} /> :
-            <SimpleButton variant="outlined" color="error" text="Sign Out" onClick={handleLogout} />
+            <Button sx={SignOutButtonStyle} variant="outlined" color="error" onClick={handleLogout}>Sign Out</Button>
     )
 }
 

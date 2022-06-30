@@ -1,3 +1,4 @@
+import { SxProps } from "@mui/material";
 import styled from "styled-components";
 import Colors from "utils/styles/colors";
 import Size from "utils/styles/size";
@@ -69,6 +70,9 @@ const MenuItem = styled.li`
         padding: 0;
     }
 `
+const SignOutButtonStyle = {
+    fontWeight: 'bolder',
+} as SxProps;
 
 export {
     HeaderLayout,
@@ -76,5 +80,6 @@ export {
     ToggleBox,
     MenuBox,
     MenuItem,
-    LogoutBox
+    LogoutBox,
+    SignOutButtonStyle
 }

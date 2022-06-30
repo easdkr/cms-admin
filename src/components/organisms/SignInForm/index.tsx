@@ -1,10 +1,7 @@
-
-import useAuth from "hooks/useAuth";
-import { Link } from "react-router-dom";
 import LogoImage from "components/atoms/LogoImage";
-import SimpleButton from "components/atoms/SimpleButton";
-import { TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import { Box } from "@mui/system";
+import { ButtonBoxStyle, ButtonStyle, SignInBoxStyles } from "./styles";
 
 interface Props {
     onInputChange: (e: any) => void;
@@ -17,17 +14,9 @@ export default function SignInForm({
     onLogin,
     onEnterKeyDown
 }: Props) {
-
-    const fieldStyle = {
-        display: "flex",
-        justifyContent: "center",
-        margin: "0.5rem"
-    }
-
     return (
-        <>
+        <Box sx={SignInBoxStyles}>
             <LogoImage />
-
             <TextField
                 label="username"
                 name="username"
@@ -42,19 +31,17 @@ export default function SignInForm({
                 onChange={onInputChange}
                 onKeyDown={onEnterKeyDown}
             />
-            <Box
-                sx={{ marginTop: "0.5rem" }}
-            >
 
-                <SimpleButton
-                    text="Sign in"
-                    fontColor={'#FFF'}
+            <Box sx={ButtonBoxStyle}>
+                <Button
+                    sx={ButtonStyle}
                     color={'info'}
                     variant={"contained"}
-                    onClick={onLogin}
-                />
+                    onClick={onLogin}>
+                    SIGN IN
+                </Button>
             </Box>
-        </>
+        </Box>
     )
 }
 

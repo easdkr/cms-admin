@@ -1,9 +1,8 @@
-import { Box } from "@mui/material";
-import { styled } from "@mui/system";
+import { SxProps } from "@mui/material";
 
-export const ContentsLayout = styled(Box)({
+export const ContentsLayoutStyle = {
     padding: 1,
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap"
-})
+} as SxProps

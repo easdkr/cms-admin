@@ -1,9 +1,9 @@
 
-import { SignInBox, SignInContainer } from "components/templates/SignIn/styles";
 import { createTheme } from "@mui/material";
 import { ThemeProvider } from "@mui/system";
 import { Meta, Story } from "@storybook/react";
 import SignInForm from ".";
+import { BrowserRouter } from "react-router-dom";
 export default {
     title: 'Organisms/SignInForm',
     component: SignInForm
@@ -17,13 +17,11 @@ const darktheme = createTheme({
 
 const Template: Story<any> = (args) => {
     return (
-        <ThemeProvider theme={darktheme}>
-            <SignInContainer>
-                <SignInBox>
-                    <SignInForm {...args} />
-                </SignInBox>
-            </SignInContainer>
-        </ThemeProvider>
+        <BrowserRouter>
+            <ThemeProvider theme={darktheme}>
+                <SignInForm {...args} />
+            </ThemeProvider >
+        </BrowserRouter >
     )
 }
 export const Default = Template.bind({});
