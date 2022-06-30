@@ -6,9 +6,11 @@ import { ContentsLayoutStyle } from "./styles";
 
 interface Props {
     contents: Content[];
+    onCardClick: any;
 }
 
-export default function Contents({ contents }: Props) {
+export default function Contents({ contents, onCardClick }: Props) {
+
     return (
         <Box sx={ContentsLayoutStyle}>
             {
@@ -18,6 +20,7 @@ export default function Contents({ contents }: Props) {
                         imageSource={item.banner}
                         title={item.title}
                         key={`contents, ${index}`}
+                        onClick={() => { onCardClick(item.id) }}
                     />
                 ))
             }

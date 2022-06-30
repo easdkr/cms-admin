@@ -15,12 +15,10 @@ export default function SignInPage() {
   }, [])
 
   return (
-    <>
-      <SignIn
-        onEnterKeyDown={handleEnterKeyDown}
-        onInputChange={handleInputChange}
-        onLogin={handleLogin}
-      />
-    </>
+    <SignIn
+      onEnterKeyDown={handleEnterKeyDown}
+      onInputChange={handleInputChange}
+      onLogin={handleLogin}
+    />
   )
 };

@@ -4,7 +4,10 @@ const paths = {
         SIGN_IN: '/auth/login',
         CHECK: '/auth/check',
     },
-    CONTENTS_LIST: '/contents'
+    contents: {
+        LIST: '/contents',
+        DETAIL: '/contents' // /contents/{id}
+    }
 }
 
 export default paths;

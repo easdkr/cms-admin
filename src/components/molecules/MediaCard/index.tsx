@@ -6,9 +6,10 @@ import { CardBoxStyles, CardTitleStyles } from "./styles";
 export interface MediaCardProps {
     imageSource: string;
     title: string;
+    onClick: any;
 }
 
-export default function MediaCard({ imageSource, title }: MediaCardProps) {
+export default function MediaCard({ imageSource, title, onClick }: MediaCardProps) {
     return (
         <Card sx={CardBoxStyles}>
             <Typography sx={CardTitleStyles}>{title}</Typography>
