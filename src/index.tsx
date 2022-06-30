@@ -1,25 +1,32 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Expenses from './Expenses';
-import Invoices from './invoices';
+import { darktheme, GlobalStyle } from 'styles';
+import { RecoilRoot } from 'recoil';
+import Main from 'pages/Main';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import SignInPage from 'pages/SignInPage';
+import { AxiosInterceptor } from 'services/AxiosInterceptor';
+import Header from 'components/organisms/Header';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />} >
-        <Route path="expenses" element={<Expenses />} />
-        <Route path="invoices" element={<Invoices />} />
-      </Route>
-    </Routes>
+    <AxiosInterceptor>
+      <RecoilRoot>
+        <ThemeProvider theme={darktheme}>
+          <GlobalStyle />
+          <Header />
+          <Routes>
+            <Route path="/signin" element={<SignInPage />} />
+            <Route path='*' element={<Main />} />
+          </Routes>
+        </ThemeProvider>
+      </RecoilRoot>
+    </AxiosInterceptor>
   </BrowserRouter>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
