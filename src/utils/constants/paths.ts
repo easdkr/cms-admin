@@ -6,7 +6,8 @@ const paths = {
     },
     contents: {
         LIST: '/contents',
-        DETAIL: '/contents' // /contents/{id}
+        DETAIL: '/contents', // /contents/{id}
+        CATEGORY: '/contents/categories',
     }
 }
 

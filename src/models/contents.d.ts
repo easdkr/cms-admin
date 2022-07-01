@@ -15,7 +15,7 @@ export interface Content {
     category: Category;
 }
 
-export interface ContentDetails extends Content {
+export interface ContentDetailsData extends Content {
     description: string;
     recordedAt: Date,
     recordedLocation: string,
@@ -24,6 +24,11 @@ export interface ContentDetails extends Content {
     assets: AssetFile[],
     tags: string[],
     colors: any
+}
+
+export interface ContentDetails {
+    detail: ContentDetailsData,
+    response: string,
 }
 
 export interface Category {

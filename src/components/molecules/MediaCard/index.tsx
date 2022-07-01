@@ -11,7 +11,7 @@ export interface MediaCardProps {
 
 export default function MediaCard({ imageSource, title, onClick }: MediaCardProps) {
     return (
-        <Card sx={CardBoxStyles}>
+        <Card sx={CardBoxStyles} onClick={onClick}>
             <Typography sx={CardTitleStyles}>{title}</Typography>
             <CardMedia
                 component="img"

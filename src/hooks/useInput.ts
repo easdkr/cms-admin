@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-const useInput = (initial: any) => {
+export const useInput = (initial: string) => {
     const [value, setValue] = useState(initial);
 
     const onChange = (event: any) => {
@@ -9,5 +9,13 @@ const useInput = (initial: any) => {
         setValue(value);
     }
 
-    return { value, onChange };
+    const reset = () => {
+        setValue(initial);
+    }
+
+    const isEmpty = () => {
+        return value.length === 0;
+    }
+
+    return { value, onChange, reset, isEmpty };
 }   

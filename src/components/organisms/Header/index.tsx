@@ -25,18 +25,17 @@ const SignOutButton = ({ handleLogout }: SignOutButtonProps) => {
 export default function Header() {
     const [isToggled, setIsToggled] = useState(false);
     const [routePath, setRoutePath] = useState('');
-    const { handleLogout } = useAuth();
+    const { handleLogout, getAuthToken } = useAuth();
     const nav = useNavigate();
     const location = useLocation();
 
     useEffect(() => {
-        console.log(location.pathname);
         setRoutePath(location.pathname);
     }, [location.pathname])
 
     return (
         <>
-            {routePath !== '/signin' ?
+            {routePath !== '/signin' && getAuthToken() ?
                 <HeaderLayout backgroundColor={Colors.HEADER}>
                     <ToggleBox
                         onClick={() => { setIsToggled(!isToggled) }}>
@@ -58,8 +57,8 @@ export default function Header() {
                         <MenuItem onClick={() => { setIsToggled(!isToggled); nav('/contents'); }}>CONTENTS</MenuItem>
                         <MenuItem>SETTINGS</MenuItem>
                         <MenuItem>MODELS</MenuItem>
-                    </MenuBox>
 
+                    </MenuBox>
                 </HeaderLayout > : <></>
             }
         </>

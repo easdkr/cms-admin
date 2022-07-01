@@ -1,14 +1,14 @@
-import { getDetail, getList } from "apis/contents"
-import { Content, ContentDetails } from "models/contents";
+import { getCategories, getDetail, getList } from "apis/contents"
+import { Category, Content, ContentDetails, ContentDetailsData } from "models/contents";
 import { useEffect, useState } from "react";
 
 export default function useContents() {
-    const [contents, setContents] = useState<Content[]>();
-    const [contentDetails, setContentDetails] = useState<ContentDetails>();
+    const [contents, setContents] = useState<Content[]>([]);
     const [modalOpen, setModalOpen] = useState(false);
 
     useEffect(() => {
         handleGetList();
+        return () => setContents(null);
     }, [])
 
     const handleGetList = async () => {
@@ -18,22 +18,18 @@ export default function useContents() {
         }
     }
 
-    const handleContentsCardClick = async (id: number) => {
-        const details = await getDetail(id);
-        if (details?.data) {
-            console.log(details.data);
-            setModalOpen(true);
-            setContentDetails(details.data);
-        }
+    const openModal = () => {
+        setModalOpen(true);
     }
 
-    const handleModalClose = () => setModalOpen(false);
+    const handleModalClose = () => {
+        setModalOpen(false);
+    }
 
     return {
-        handleContentsCardClick,
+        openModal,
         contents,
         modalOpen,
         handleModalClose,
-        contentDetails,
     };
 };

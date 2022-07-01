@@ -1,5 +1,5 @@
 import { getToken, tokenCheck } from "apis/auth";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
 import { AuthStorage } from "services/storages";
@@ -7,13 +7,17 @@ import { tokenState } from "stores/token";
 
 export default function useAuth() {
     const navigate = useNavigate();
-    const setToken = useSetRecoilState(tokenState);
 
     const [account, setAccount] = useState({
         username: "",
         password: ""
     })
 
+    useEffect(() => {
+        return () => {
+            setAccount(null);
+        }
+    }, [])
     const handleInputChange = (e: any) => {
         const { name, value } = e.target;
         setAccount({ ...account, [name]: value });
@@ -35,7 +39,6 @@ export default function useAuth() {
         if (res && res.data.token) {
             const token = res.data.token;
             AuthStorage.set(token);
-            setToken(token);
             navigate('/');
         }
     }
@@ -46,11 +49,11 @@ export default function useAuth() {
     }
 
     const checkAuth = async () => {
-        const res = await tokenCheck();
-        if (res) {
-            console.log(res);
-            navigate('/');
-        }
+        return await tokenCheck();
+    }
+
+    const getAuthToken = () => {
+        return AuthStorage.get();
     }
 
     return {
@@ -58,6 +61,7 @@ export default function useAuth() {
         handleLogin,
         handleEnterKeyDown,
         handleLogout,
-        checkAuth
+        checkAuth,
+        getAuthToken
     };
 };

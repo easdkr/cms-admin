@@ -1,35 +1,42 @@
-import { Box, Modal } from "@mui/material";
-import ContentsDetails from "components/organisms/ContentsDetails";
+import ContentsDetails from "components/organisms/ContentDetails";
 import Contents from "components/templates/Contents";
+import useContentDetails from "hooks/useContentDetails";
 import useContents from "hooks/useContents"
-import { Content } from "models/contents";
-import { useEffect, useState } from "react";
-
-
 
 export default function ContentsPage() {
     const {
         contents,
-        handleContentsCardClick,
-        handleModalClose, modalOpen,
-        contentDetails
+        openModal, handleModalClose, modalOpen
     } = useContents();
+
+    const {
+        categories,
+        contentDetailsData,
+        handleGetContentDetails,
+        selectedCategory,
+        setSelectedCategory,
+    } = useContentDetails();
+
+    const onCardClick = async (id: number) => {
+        await handleGetContentDetails(id);
+        openModal();
+    }
 
     return (
         <>
             <Contents
-                onCardClick={handleContentsCardClick}
+                onCardClick={onCardClick}
                 contents={contents}
             />
-            <ContentsDetails contentDetails={contentDetails} open={modalOpen} onClose={handleModalClose} />
-            {/* <Modal
+
+            <ContentsDetails
+                contentDetailsData={contentDetailsData}
                 open={modalOpen}
                 onClose={handleModalClose}
-            >
-                <Box sx={style}>
-                    <ContentsDetails />
-                </Box>
-            </Modal> */}
+                categories={categories}
+                selectedCateory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+            />
         </>
     )
 };

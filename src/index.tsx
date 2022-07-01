@@ -18,7 +18,6 @@ root.render(
       <RecoilRoot>
         <ThemeProvider theme={darktheme}>
           <GlobalStyle />
-          <Header />
           <Routes>
             <Route path="/signin" element={<SignInPage />} />
             <Route path='*' element={<Main />} />

@@ -14,12 +14,11 @@ export default function Contents({ contents, onCardClick }: Props) {
     return (
         <Box sx={ContentsLayoutStyle}>
             {
-                contents &&
                 contents.map((item, index) => (
                     <MediaCard
                         imageSource={item.banner}
                         title={item.title}
-                        key={`contents, ${index}`}
+                        key={`Card, ${index}`}
                         onClick={() => { onCardClick(item.id) }}
                     />
                 ))

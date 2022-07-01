@@ -16,6 +16,9 @@ const Size = {
         BOX_MARGIN: "auto",
         BOX_PADDING: "20px 25px 20px 25px",
         BOX_BORDER_RADIUS: "15px",
+    },
+    contentsDetail: {
+        LAYOUT_WIDTH: "50%",
     }
 }
 

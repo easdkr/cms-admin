@@ -2,6 +2,7 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import { Meta, Story } from "@storybook/react";
 import { GlobalStyle } from "styles";
 import ContentsDetails from ".";
+import { CategoryDefaultData, ContentDetailsDefaultData } from "./ContentDetails.data";
 
 export default {
     title: 'Organisms/ContentsDetails',
@@ -18,7 +19,7 @@ const Template: Story<any> = (args) => {
     return (
         <ThemeProvider theme={darktheme}>
             <GlobalStyle />
-            {/* <ContentsDetails /> */}
+            <ContentsDetails {...args} />
         </ThemeProvider>
     )
 }
@@ -26,5 +27,8 @@ const Template: Story<any> = (args) => {
 export const Default = Template.bind({});
 
 Default.args = {
-
+    open: true,
+    onClose: () => { },
+    contentDetailsData: ContentDetailsDefaultData,
+    categories: CategoryDefaultData,
 }
