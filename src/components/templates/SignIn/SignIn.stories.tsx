@@ -8,6 +8,7 @@ export default {
   component: SignIn,
 } as Meta
 
+// eslint-disable-next-line react/function-component-definition
 const Template: Story<any> = args => {
   return (
     <ThemeProvider theme={darktheme}>

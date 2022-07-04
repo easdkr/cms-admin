@@ -18,14 +18,14 @@ export default function ContentsPage() {
     <>
       <Contents onCardClick={onCardClick} contents={contents} />
 
-      <ContentsDetails
+      {/* <ContentsDetails
         contentDetailsData={contentDetailsData}
         open={modalOpen}
         onClose={handleModalClose}
         categories={categories}
         selectedCateory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
-      />
+      /> */}
     </>
   )
 }

@@ -1,5 +1,5 @@
 export interface AssetFile {
-  id: string //GUID
+  id: string // GUID
   contentType: string
   name: string
   length: number

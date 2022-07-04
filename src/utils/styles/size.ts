@@ -19,6 +19,7 @@ const Size = {
   },
   contentsDetail: {
     LAYOUT_WIDTH: '50%',
+    LAYOUT_HEIGHT: '75%'
   },
 }
 

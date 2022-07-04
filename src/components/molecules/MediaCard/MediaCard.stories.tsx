@@ -10,6 +10,7 @@ export default {
   component: MediaCard,
 } as Meta
 
+// eslint-disable-next-line react/function-component-definition
 const Template: Story<MediaCardProps> = args => {
   return (
     <div>

@@ -1,4 +1,23 @@
+import { ContentDetailsData } from "models/contents"
+
 export const ContentDetailsDefaultData = {
+  author: 'GENIE MUSIC X ALPHACIRCLE',
+  banner: 'a',
+  category: {
+    id: 14,
+    name: 'K-POP',
+    sorting: 3,
+  },
+  colors: {},
+  created_at: '2021-08-03T03:09:08.556952Z',
+  description: "VP (VirtualPlay)는 지니뮤직과 알파서클이 함께 만드는 실감기술을 통해 음악을 전달하는 가상형 실감음악 서비스입니다.<br><br>\n2021년 3월 발표된 SF9 VP앨범 수록곡 <br>< 질렀어(Jealous) >의 티저를 통해 초현실적인 공간에서 만나는 SF9의 감각적인 퍼포먼스를 감상해보세요. <br><br>지니뮤직의 VirtualPlay 앱을 다운로드 받으시면, <br>더 많은 콘텐츠를 즐기실 수 있습니다.  \n<p>\n<a href=\"https://play.google.com/store/apps/details?id=com.alphacircle.virtualplay\"><font color=\"black\">[ Download VirtualPlay ] @ Google Play</font></a><br>\n<br>\nVP (VirtualPlay) is a virtual reality platform that delivers immersive music performance through VR technology powered by Genie Music and ALPHACIRCLE.<br><br>\nExperience the most outbreaking and sensual performance through a teaser of SF9's one of the tracks called 'Jealous' released in March 2021.<br><br>\nTap on the link above to download the <br>'VirtualPlay' App to enjoy more contents. \n",
+  id: 41,
+  length: 1422716189,
+  recorded_at: 'a',
+  recorded_location: 'a',
+  running_time: 69,
+  tags: ['a'],
+  title: 'SF9 VP Teaser : 질렀어',
   assets: [
     {
       content_type: '',
@@ -100,25 +119,7 @@ export const ContentDetailsDefaultData = {
       purposes: ['video-hd'],
     },
   ],
-  author: 'GENIE MUSIC X ALPHACIRCLE',
-  banner: '',
-  category: {
-    id: 14,
-    name: 'K-POP',
-    sorting: 3,
-  },
-  colors: {},
-  created_at: '2021-08-03T03:09:08.556952Z',
-  description:
-    "VP (VirtualPlay)는 지니뮤직과 알파서클이 함께 만드는 실감기술을 통해 음악을 전달하는 가상형 실감음악 서비스입니다.<br><br>\n2021년 3월 발표된 SF9 VP앨범 수록곡 <br>< 질렀어(Jealous) >의 티저를 통해 초현실적인 공간에서 만나는 SF9의 감각적인 퍼포먼스를 감상해보세요. <br><br>지니뮤직의 VirtualPlay 앱을 다운로드 받으시면, <br>더 많은 콘텐츠를 즐기실 수 있습니다.  \n<p>\n<a href=\"https://play.google.com/store/apps/details?id=com.alphacircle.virtualplay\"><font color=\"black\">[ Download VirtualPlay ] @ Google Play</font></a><br>\n<br>\nVP (VirtualPlay) is a virtual reality platform that delivers immersive music performance through VR technology powered by Genie Music and ALPHACIRCLE.<br><br>\nExperience the most outbreaking and sensual performance through a teaser of SF9's one of the tracks called 'Jealous' released in March 2021.<br><br>\nTap on the link above to download the <br>'VirtualPlay' App to enjoy more contents. \n",
-  id: 41,
-  length: 1422716189,
-  recorded_at: '',
-  recorded_location: '',
-  running_time: 69,
-  tags: '',
-  title: 'SF9 VP Teaser : 질렀어',
-}
+} as unknown as ContentDetailsData
 
 export const CategoryDefaultData = [
   {

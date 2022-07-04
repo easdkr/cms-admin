@@ -1,4 +1,18 @@
-import { Box, MenuItem, Modal, Select, SelectChangeEvent, TextField, Typography } from '@mui/material'
+import {
+  Box,
+  FormHelperText,
+  MenuItem,
+  MenuItemProps,
+  Modal,
+  Select,
+  SelectChangeEvent,
+  SelectProps,
+  TextField,
+  TextFieldProps,
+  Typography,
+} from '@mui/material'
+import FormHeader from 'components/atoms/FormHeader'
+import FormSelect, { FormSelectProps } from 'components/molecules/FormSelect'
 import TagInput from 'components/molecules/TagInput'
 import { useInput } from 'hooks/useInput'
 import { Category, ContentDetailsData } from 'models/contents'
@@ -6,13 +20,15 @@ import { useEffect, useState } from 'react'
 import Strings from 'utils/constants/strings'
 import { ContentsDetailLayoutStyles } from './styles'
 
-interface Props {
+export interface ContentsDetailsProps {
   open: boolean
-  onClose: any
+  onClose?: (event: any, reason: 'backdropClick' | 'escapeKeyDown') => void
   contentDetailsData: ContentDetailsData
   categories: Category[]
-  selectedCateory: string
-  setSelectedCategory: any
+  categoryProps: FormSelectProps<Category>
+  titleProps: TextFieldProps
+  authorProps: TextFieldProps
+  descriptionProps: TextFieldProps
 }
 
 export default function ContentsDetails({
@@ -20,72 +36,34 @@ export default function ContentsDetails({
   onClose,
   contentDetailsData,
   categories,
-  selectedCateory,
-  setSelectedCategory,
-}: Props) {
-  const handleChange = (e: SelectChangeEvent) => {
-    setSelectedCategory(e.target.value as string)
-  }
-
+  categoryProps,
+  titleProps,
+  authorProps,
+  descriptionProps,
+}: ContentsDetailsProps) {
   const input = useInput('')
-  const [tags, setTags] = useState<string[]>([])
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') handleEnterKeyDown()
-    else if (e.key === 'Backspace') handleBackspace()
-  }
-
-  const handleEnterKeyDown = () => {
-    setTags([...tags, input.value])
-    input.reset()
-  }
-
-  const handleBackspace = () => {
-    if (input.isEmpty()) {
-      tags.pop()
-      setTags([...tags])
-    }
-  }
   useEffect(() => {
     return () => {
       console.log('close')
       input.reset()
-      setTags([])
     }
   }, [])
+
   return (
     <Modal open={open} onClose={onClose}>
       <Box sx={ContentsDetailLayoutStyles}>
-        <Typography variant="h6" color="HighlightText" component="div" gutterBottom>
-          {Strings.contents.DETAIL_HEADER}
-        </Typography>
+        {/* 모달헤더 */}
+        <FormHeader text={Strings.contents.DETAIL_HEADER} />
 
-        <TextField label="title" defaultValue={contentDetailsData?.title} />
+        {/* category  */}
+        <FormSelect {...categoryProps} />
 
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={selectedCateory}
-          onChange={handleChange}
-        >
-          {categories.map(value => (
-            <MenuItem value={value.name} key={value.id}>
-              {value.name}
-            </MenuItem>
-          ))}
-        </Select>
+        {/* title */}
+        <TextField {...titleProps} />
 
-        {/* <TagInput
-          label="tags"
-          onKeyDown={handleKeyDown}
-          value={input.value}
-          onChange={input.onChange}
-          tags={tags}
-          chipProps={{
-            color: 'primary',
-            size: 'small',
-          }}
-        /> */}
+        {/* author */}
+        <TextField {...authorProps} />
       </Box>
     </Modal>
   )
