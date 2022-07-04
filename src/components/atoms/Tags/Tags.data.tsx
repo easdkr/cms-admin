@@ -1,3 +1,1 @@
-export const Datas = [
-    "ABC", "DEF", "GHI", "JKL"
-]
+export const Datas = ['ABC', 'DEF', 'GHI', 'JKL']

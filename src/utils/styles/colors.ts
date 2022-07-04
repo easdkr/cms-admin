@@ -1,21 +1,20 @@
-
 const Colors = {
-    HEADER: '#000000',
-    MENU_HOVER: '#FFFFFFAA',
-    BACKGROUND: '#303030',
+  HEADER: '#000000',
+  MENU_HOVER: '#FFFFFFAA',
+  BACKGROUND: '#303030',
 
-    SignIn: {
-        BACKGROUND: '#282c32',
-        BUTTON_FONT_COLOR: '#FFFFFF',
-    },
+  SignIn: {
+    BACKGROUND: '#282c32',
+    BUTTON_FONT_COLOR: '#FFFFFF',
+  },
 
-    Card: {
-        CONTAINER: `divider`,
-    },
+  Card: {
+    CONTAINER: `divider`,
+  },
 
-    Modal: {
-        BACKGROUND: '#404040',
-    }
+  Modal: {
+    BACKGROUND: '#404040',
+  },
 }
 
-export default Colors;
+export default Colors

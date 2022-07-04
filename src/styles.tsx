@@ -1,7 +1,7 @@
-import { createTheme } from "@mui/material";
-import { createGlobalStyle } from "styled-components";
-import Colors from "utils/styles/colors";
-import Size from "utils/styles/size";
+import { createTheme } from '@mui/material'
+import { createGlobalStyle } from 'styled-components'
+import Colors from 'utils/styles/colors'
+import Size from 'utils/styles/size'
 
 export const GlobalStyle = createGlobalStyle`
 #root,
@@ -15,7 +15,7 @@ body {
 `
 
 export const darktheme = createTheme({
-    palette: {
-        mode: 'dark',
-    }
-});
+  palette: {
+    mode: 'dark',
+  },
+})

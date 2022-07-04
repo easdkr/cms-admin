@@ -1,24 +1,14 @@
-import SignIn from "components/templates/SignIn";
-import useAuth from "hooks/useAuth"
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import SignIn from 'components/templates/SignIn'
+import useAuth from 'hooks/useAuth'
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
 export default function SignInPage() {
-  const {
-    handleEnterKeyDown,
-    handleInputChange,
-    handleLogin,
-    checkAuth } = useAuth();
+  const { handleEnterKeyDown, handleInputChange, handleLogin, checkAuth } = useAuth()
 
   useEffect(() => {
-    checkAuth();
+    checkAuth()
   }, [])
 
-  return (
-    <SignIn
-      onEnterKeyDown={handleEnterKeyDown}
-      onInputChange={handleInputChange}
-      onLogin={handleLogin}
-    />
-  )
-};
+  return <SignIn onEnterKeyDown={handleEnterKeyDown} onInputChange={handleInputChange} onLogin={handleLogin} />
+}

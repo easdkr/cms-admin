@@ -1,67 +1,66 @@
-import { getToken, tokenCheck } from "apis/auth";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useSetRecoilState } from "recoil";
-import { AuthStorage } from "services/storages";
-import { tokenState } from "stores/token";
+import { getToken, tokenCheck } from 'apis/auth'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useSetRecoilState } from 'recoil'
+import { AuthStorage } from 'services/storages'
+import { tokenState } from 'stores/token'
 
 export default function useAuth() {
-    const navigate = useNavigate();
+  const navigate = useNavigate()
 
-    const [account, setAccount] = useState({
-        username: "",
-        password: ""
-    })
+  const [account, setAccount] = useState({
+    username: '',
+    password: '',
+  })
 
-    useEffect(() => {
-        return () => {
-            setAccount(null);
-        }
-    }, [])
-    const handleInputChange = (e: any) => {
-        const { name, value } = e.target;
-        setAccount({ ...account, [name]: value });
+  useEffect(() => {
+    return () => {
+      setAccount(null)
+    }
+  }, [])
+  const handleInputChange = (e: any) => {
+    const { name, value } = e.target
+    setAccount({ ...account, [name]: value })
+  }
+
+  const handleEnterKeyDown = (e: any) => {
+    if (e.key === 'Enter') handleLogin()
+  }
+
+  const handleLogin = async () => {
+    const payload = {
+      username: account.username,
+      password: account.password,
     }
 
-    const handleEnterKeyDown = (e: any) => {
-        if (e.key === 'Enter') handleLogin();
+    const res = await getToken(payload)
+
+    if (res && res.data.token) {
+      const token = res.data.token
+      AuthStorage.set(token)
+      navigate('/')
     }
+  }
 
-    const handleLogin = async () => {
+  const handleLogout = () => {
+    AuthStorage.remove()
+    navigate('/signin')
+  }
 
-        const payload = {
-            username: account.username,
-            password: account.password
-        }
+  const checkAuth = async () => {
+    return await tokenCheck()
+  }
 
-        const res = await getToken(payload);
+  const getAuthToken = () => {
+    return AuthStorage.get()
+  }
 
-        if (res && res.data.token) {
-            const token = res.data.token;
-            AuthStorage.set(token);
-            navigate('/');
-        }
-    }
-
-    const handleLogout = () => {
-        AuthStorage.remove();
-        navigate('/signin')
-    }
-
-    const checkAuth = async () => {
-        return await tokenCheck();
-    }
-
-    const getAuthToken = () => {
-        return AuthStorage.get();
-    }
-
-    return {
-        handleInputChange,
-        handleLogin,
-        handleEnterKeyDown,
-        handleLogout,
-        checkAuth,
-        getAuthToken
-    };
-};
+  return {
+    handleInputChange,
+    handleLogin,
+    handleEnterKeyDown,
+    handleLogout,
+    checkAuth,
+    getAuthToken,
+  }
+}

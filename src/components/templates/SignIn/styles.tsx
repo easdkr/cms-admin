@@ -1,7 +1,7 @@
-import { SxProps } from "@mui/material"
-import styled from "styled-components"
-import Colors from "utils/styles/colors"
-import Size from "utils/styles/size";
+import { SxProps } from '@mui/material'
+import styled from 'styled-components'
+import Colors from 'utils/styles/colors'
+import Size from 'utils/styles/size'
 
 // export const SignInContainer = styled.div`
 //     display: flex;
@@ -25,9 +25,8 @@ import Size from "utils/styles/size";
 // `
 
 export const SignInLayoutStyles = {
-    display: "flex",
-    justifyContent: "center",
-    width: "100%",
-    height: "100%",
-} as SxProps;
-
+  display: 'flex',
+  justifyContent: 'center',
+  width: '100%',
+  height: '100%',
+} as SxProps

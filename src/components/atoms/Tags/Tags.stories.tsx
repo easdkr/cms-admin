@@ -1,5 +1,3 @@
-import { Meta } from "@storybook/react";
+import { Meta } from '@storybook/react'
 
-export default {
-
-} as Meta;
+export default {} as Meta

@@ -1,5 +1,5 @@
 const keys = {
-    AUTH: 'auth/token',
+  AUTH: 'auth/token',
 }
 
-export default keys;
+export default keys
