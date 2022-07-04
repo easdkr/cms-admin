@@ -1,0 +1,8 @@
+version: '3.2'
+
+services:
+  admin-react:
+    container_name: admin-react
+    build: .
+    ports:
+      - '80:80'
