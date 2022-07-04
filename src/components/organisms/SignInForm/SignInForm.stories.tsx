@@ -3,6 +3,7 @@ import { ThemeProvider } from '@mui/system'
 import { Meta, Story } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 import SignInForm from '.'
+
 export default {
   title: 'Organisms/SignInForm',
   component: SignInForm,
@@ -14,7 +15,8 @@ const darktheme = createTheme({
   },
 })
 
-const Template: Story<any> = args => {
+// eslint-disable-next-line func-names
+const Template = function (args : any) {
   return (
     <BrowserRouter>
       <ThemeProvider theme={darktheme}>

@@ -75,7 +75,7 @@ export default function ContentsDetails({
           ))}
         </Select>
 
-        <TagInput
+        {/* <TagInput
           label="tags"
           onKeyDown={handleKeyDown}
           value={input.value}
@@ -85,7 +85,7 @@ export default function ContentsDetails({
             color: 'primary',
             size: 'small',
           }}
-        />
+        /> */}
       </Box>
     </Modal>
   )
