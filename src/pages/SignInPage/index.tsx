@@ -4,11 +4,18 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
 export default function SignInPage() {
-  const { handleEnterKeyDown, handleInputChange, handleLogin, checkAuth } = useAuth()
+  const { handleEnterKeyDown, handleInputChange, handleLogin, checkAuth } =
+    useAuth()
 
   useEffect(() => {
     checkAuth()
   }, [])
 
-  return <SignIn onEnterKeyDown={handleEnterKeyDown} onInputChange={handleInputChange} onLogin={handleLogin} />
+  return (
+    <SignIn
+      onEnterKeyDown={handleEnterKeyDown}
+      onInputChange={handleInputChange}
+      onLogin={handleLogin}
+    />
+  )
 }

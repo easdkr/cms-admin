@@ -6,8 +6,13 @@ import useContents from 'hooks/useContents'
 export default function ContentsPage() {
   const { contents, openModal, handleModalClose, modalOpen } = useContents()
 
-  const { categories, contentDetailsData, handleGetContentDetails, selectedCategory, setSelectedCategory } =
-    useContentDetails()
+  const {
+    categories,
+    contentDetailsData,
+    handleGetContentDetails,
+    selectedCategory,
+    setSelectedCategory,
+  } = useContentDetails()
 
   const onCardClick = async (id: number) => {
     await handleGetContentDetails(id)
