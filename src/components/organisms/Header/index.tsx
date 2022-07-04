@@ -3,17 +3,17 @@ import useAuth from 'hooks/useAuth'
 import { useEffect, useState, useTransition } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Colors from 'utils/styles/colors'
-import { HeaderLayout, LogoBox, LogoutBox, MenuBox, MenuItem, SignOutButtonStyle, ToggleBox } from './styles'
 import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded'
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded'
 import { Button, useMediaQuery } from '@mui/material'
 import Size from 'utils/styles/size'
+import { HeaderLayout, LogoBox, LogoutBox, MenuBox, MenuItem, SignOutButtonStyle, ToggleBox } from './styles'
 
 interface SignOutButtonProps {
   handleLogout: any
 }
 
-const SignOutButton = ({ handleLogout }: SignOutButtonProps) => {
+function SignOutButton({ handleLogout }: SignOutButtonProps) {
   const isTablet = useMediaQuery(`(max-width: ${Size.TABLET})`)
   return isTablet ? (
     <ExitToAppRoundedIcon color="error" onClick={handleLogout} />
@@ -36,6 +36,7 @@ export default function Header() {
   }, [location.pathname])
 
   return (
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       {routePath !== '/signin' && getAuthToken() ? (
         <HeaderLayout backgroundColor={Colors.HEADER}>
@@ -69,6 +70,7 @@ export default function Header() {
           </MenuBox>
         </HeaderLayout>
       ) : (
+        // eslint-disable-next-line react/jsx-no-useless-fragment
         <></>
       )}
     </>

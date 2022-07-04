@@ -18,7 +18,7 @@ export default function SignInForm({ onInputChange, onLogin, onEnterKeyDown }: P
       <TextField label="password" name="password" type="password" onChange={onInputChange} onKeyDown={onEnterKeyDown} />
 
       <Box sx={ButtonBoxStyle}>
-        <Button sx={ButtonStyle} color={'info'} variant={'contained'} onClick={onLogin}>
+        <Button sx={ButtonStyle} color="info" variant="contained" onClick={onLogin}>
           SIGN IN
         </Button>
       </Box>

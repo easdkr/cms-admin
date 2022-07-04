@@ -7,10 +7,12 @@ const httpClient: AxiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_HOST,
   timeout: 10000,
 })
-//request interceptor
+
+// request interceptor
 httpClient.interceptors.request.use((config: AxiosRequestConfig) => {
   const token = AuthStorage.get()
-  config.headers['Authorization'] = `Bearer ${token}`
+  // eslint-disable-next-line no-param-reassign
+  config.headers.Authorization = `Bearer ${token}`
   return config
 })
 
@@ -34,7 +36,7 @@ const AxiosInterceptor = ({ children }: any) => {
 
     setIntercepted(true)
 
-    //CleanUp
+    // CleanUp
     return () => httpClient.interceptors.response.eject(interceptor)
   }, [navigate])
 

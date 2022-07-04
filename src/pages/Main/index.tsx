@@ -5,7 +5,6 @@ import { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 export default function Main() {
-  //TODO
   const { checkAuth } = useAuth()
 
   useEffect(() => {

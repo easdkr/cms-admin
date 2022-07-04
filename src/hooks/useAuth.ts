@@ -36,7 +36,7 @@ export default function useAuth() {
     const res = await getToken(payload)
 
     if (res && res.data.token) {
-      const token = res.data.token
+      const {token} = res.data
       AuthStorage.set(token)
       navigate('/')
     }
@@ -48,7 +48,8 @@ export default function useAuth() {
   }
 
   const checkAuth = async () => {
-    return await tokenCheck()
+    const check = await tokenCheck();
+    return check;
   }
 
   const getAuthToken = () => {

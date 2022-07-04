@@ -10,5 +10,5 @@ export const ContentsDetailLayoutStyles = {
   left: '50%',
   backgroundColor: Colors.Modal.BACKGROUND,
   transform: 'translate(-50%, -50%)',
-  position: 'absolute' as 'absolute',
+  position: 'absolute'
 } as SxProps

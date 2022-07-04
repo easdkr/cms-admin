@@ -4,11 +4,13 @@ import { ListResponse } from 'models/commons'
 import { Category, Content, ContentDetails } from 'models/contents'
 import paths from 'utils/constants/paths'
 
+// eslint-disable-next-line camelcase
 export const getList = async (offset?: number, page_size?: number, query?: any) => {
   const payload = {
     offset: offset.toString(),
+    // eslint-disable-next-line camelcase
     page_size: page_size.toString(),
-    query: query,
+    query,
   }
 
   return (await httpClient.get(paths.contents.LIST, {

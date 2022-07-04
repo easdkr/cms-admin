@@ -3,64 +3,64 @@ import { useInput } from 'hooks/useInput'
 import React, { useEffect, useState } from 'react'
 import { ChipStyles } from './styles'
 
-export interface TagInputProps {
-  label: string
-  value: string
-  tags: string[]
-  chipProps?: any
-  onKeyDown: (e: React.KeyboardEvent) => void
-  onChange: (e: React.ChangeEvent) => void
-  color?: 'error' | 'primary' | 'secondary' | 'info' | 'success' | 'warning'
-}
+// export interface TagInputProps {
+//   label: string
+//   value: string
+//   tags: string[]
+//   chipProps?: any
+//   onKeyDown: (e: React.KeyboardEvent) => void
+//   onChange: (e: React.ChangeEvent) => void
+//   // eslint-disable-next-line react/require-default-props
+//   color?: 'error' | 'primary' | 'secondary' | 'info' | 'success' | 'warning'
+// }
 
-interface TagsProps {
-  tags: string[]
-  chipProps?: ChipProps
-}
+// interface TagsProps {
+//   tags: string[]
+//   chipProps?: ChipProps
+// }
 
-export interface ChipProps {
-  color: 'default' | 'error' | 'primary' | 'secondary' | 'info' | 'success' | 'warning'
-  size: 'small' | 'medium'
-  onDelete: (event: any) => void
-}
+// export interface ChipProps {
+//   color: 'default' | 'error' | 'primary' | 'secondary' | 'info' | 'success' | 'warning'
+//   size: 'small' | 'medium'
+//   onDelete: (event: any) => void
+// }
 
-const Tag = ({ tags, chipProps }: TagsProps) => {
+// function Tag({ tags, chipProps }: TagsProps) {
+//   return (
+//     <>
+//       {tags.map((data, index) => (
+//         <Chip
+//           color={chipProps?.color}
+//           sx={ChipStyles}
+//           key={}
+//           label={data}
+//           size={chipProps?.size}
+//           onDelete={() => {
+//             chipProps.onDelete(data)
+//           }}
+//         />
+//       ))}
+//     </>
+//   )
+// }
+
+export default function TagInput({ ...props }) {
   return (
-    <>
-      {tags.map((data, index) => (
-        <Chip
-          color={chipProps?.color}
-          sx={ChipStyles}
-          key={`index, ${index}`}
-          label={data}
-          size={chipProps?.size}
-          onDelete={() => {
-            chipProps.onDelete(data)
-          }}
-        />
-      ))}
-    </>
-  )
-}
-
-export default function TagInput({ ...props }: TagInputProps) {
-  return (
-    <>
-      <TextField
-        color={props.color}
-        value={props.value}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <Tag tags={props.tags} chipProps={props.chipProps} />
-            </InputAdornment>
-          ),
-        }}
-        onChange={e => {
-          props.onChange(e)
-        }}
-        {...props}
-      />
-    </>
+    // <TextField
+    //     color={props.color}
+    //     value={props.value}
+    //     InputProps={{
+    //       startAdornment: (
+    //         <InputAdornment position="start">
+    //           <Tag tags={props.tags} chipProps={props.chipProps} />
+    //         </InputAdornment>
+    //       ),
+    //     }}
+    //     onChange={e => {
+    //       props.onChange(e)
+    //     }}
+    //     {...props}
+    //   />
+    <div/>
   )
 }

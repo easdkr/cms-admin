@@ -31,8 +31,8 @@ export default function ContentsDetails({
   const [tags, setTags] = useState<string[]>([])
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key == 'Enter') handleEnterKeyDown()
-    else if (e.key == 'Backspace') handleBackspace()
+    if (e.key === 'Enter') handleEnterKeyDown()
+    else if (e.key === 'Backspace') handleBackspace()
   }
 
   const handleEnterKeyDown = () => {
@@ -56,11 +56,11 @@ export default function ContentsDetails({
   return (
     <Modal open={open} onClose={onClose}>
       <Box sx={ContentsDetailLayoutStyles}>
-        <Typography variant="h6" color="HighlightText" component={'div'} gutterBottom>
+        <Typography variant="h6" color="HighlightText" component="div" gutterBottom>
           {Strings.contents.DETAIL_HEADER}
         </Typography>
 
-        <TextField label={'title'} defaultValue={contentDetailsData?.title} />
+        <TextField label="title" defaultValue={contentDetailsData?.title} />
 
         <Select
           labelId="demo-simple-select-label"
@@ -68,15 +68,15 @@ export default function ContentsDetails({
           value={selectedCateory}
           onChange={handleChange}
         >
-          {categories?.map((value, index) => (
-            <MenuItem value={value.name} key={index}>
+          {categories.map(value => (
+            <MenuItem value={value.name} key={value.id}>
               {value.name}
             </MenuItem>
           ))}
         </Select>
 
         <TagInput
-          label={'tags'}
+          label="tags"
           onKeyDown={handleKeyDown}
           value={input.value}
           onChange={input.onChange}
