@@ -1,21 +1,14 @@
 import { Box } from '@mui/material'
-import { createTheme, ThemeProvider } from '@mui/system'
 import SignInForm from 'components/organisms/SignInForm'
-import Colors from 'utils/styles/colors'
+import { memo } from 'react'
 import { SignInLayoutStyles } from './styles'
 
-interface Props {
-  onInputChange: (e: any) => void
-  onLogin: () => Promise<void>
-  onEnterKeyDown: (e: any) => void
-}
-const darkTheme = createTheme
-function SignIn({ onInputChange, onLogin, onEnterKeyDown }: Props) {
+function SignIn() {
   return (
     <Box sx={SignInLayoutStyles}>
-      <SignInForm onInputChange={onInputChange} onLogin={onLogin} onEnterKeyDown={onEnterKeyDown} />
+      <SignInForm />
     </Box>
   )
 }
 
-export default SignIn
+export default memo(SignIn)

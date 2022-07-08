@@ -5,7 +5,7 @@ import Size from 'utils/styles/size'
 export const ContentsDetailLayoutStyles = {
   display: 'flex',
   flexDirection: 'column',
-  width: Size.contentsDetail.LAYOUT_WIDTH,
+  // width: Size.contentsDetail.LAYOUT_WIDTH,
   height: Size.contentsDetail.LAYOUT_HEIGHT,
   top: '50%',
   left: '50%',

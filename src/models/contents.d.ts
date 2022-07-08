@@ -17,9 +17,9 @@ export interface Content {
 
 export interface ContentDetailsData extends Content {
   description: string
-  recordedAt: Date
-  recordedLocation: string
-  runningTime: number
+  recorded_at: Date
+  recorded_location: string
+  running_time: number
   length: number
   assets: AssetFile[]
   tags: string[]

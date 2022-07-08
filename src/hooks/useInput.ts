@@ -1,22 +1,32 @@
-import { useState } from 'react'
+import { ReactNode, useCallback, useState } from 'react'
 
-export const useInput = (initial: string) => {
+export const useInput = (
+  initial: any,
+  validate?: (value: string) => boolean,
+) => {
   const [value, setValue] = useState(initial)
 
-  const onChange = (event: any) => {
+  const onChange = useCallback((event: any) => {
     const {
       target: { value },
     } = event
-    setValue(value)
-  }
+
+    if (validate === undefined || isEmpty() || validate(value)) {
+      setValue(value)
+    }
+  }, [])
 
   const reset = () => {
     setValue(initial)
   }
 
   const isEmpty = () => {
-    return value.length === 0
+    return value === undefined || value === null || value === ''
   }
 
-  return { value, onChange, reset, isEmpty }
+  const set = useCallback((_value: ReactNode) => {
+    setValue(_value)
+  }, [])
+
+  return { value, onChange, reset, isEmpty, set }
 }

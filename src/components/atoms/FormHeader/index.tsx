@@ -8,7 +8,7 @@ export default function FormHeader({ text }: Props) {
   return (
     <Typography
       variant="h6"
-      color="HighlightText"
+      color="#FFF"
       component="div"
       fontWeight="bolder"
       gutterBottom

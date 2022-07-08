@@ -7,7 +7,15 @@ import ExitToAppRoundedIcon from '@mui/icons-material/ExitToAppRounded'
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded'
 import { Button, useMediaQuery } from '@mui/material'
 import Size from 'utils/styles/size'
-import { HeaderLayout, LogoBox, LogoutBox, MenuBox, MenuItem, SignOutButtonStyle, ToggleBox } from './styles'
+import {
+  HeaderLayout,
+  LogoBox,
+  LogoutBox,
+  MenuBox,
+  MenuItem,
+  SignOutButtonStyle,
+  ToggleBox,
+} from './styles'
 
 interface SignOutButtonProps {
   handleLogout: any
@@ -18,7 +26,12 @@ function SignOutButton({ handleLogout }: SignOutButtonProps) {
   return isTablet ? (
     <ExitToAppRoundedIcon color="error" onClick={handleLogout} />
   ) : (
-    <Button sx={SignOutButtonStyle} variant="outlined" color="error" onClick={handleLogout}>
+    <Button
+      sx={SignOutButtonStyle}
+      variant="outlined"
+      color="error"
+      onClick={handleLogout}
+    >
       Sign Out
     </Button>
   )
@@ -56,7 +69,11 @@ export default function Header() {
             <SignOutButton handleLogout={handleLogout} />
           </LogoutBox>
 
-          <MenuBox isToggled={isToggled} largeWidthOrder={2} smallWidthOrder={4}>
+          <MenuBox
+            isToggled={isToggled}
+            largeWidthOrder={2}
+            smallWidthOrder={4}
+          >
             <MenuItem
               onClick={() => {
                 setIsToggled(!isToggled)
@@ -65,7 +82,13 @@ export default function Header() {
             >
               CONTENTS
             </MenuItem>
-            <MenuItem>SETTINGS</MenuItem>
+            <MenuItem
+              onClick={() => {
+                nav('/settings')
+              }}
+            >
+              SETTINGS
+            </MenuItem>
             <MenuItem>MODELS</MenuItem>
           </MenuBox>
         </HeaderLayout>

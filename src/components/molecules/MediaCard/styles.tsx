@@ -1,4 +1,4 @@
-import { Card, CardMedia, styled, SxProps } from '@mui/material'
+import { SxProps } from '@mui/material'
 import Colors from 'utils/styles/colors'
 import Size from 'utils/styles/size'
 
@@ -11,5 +11,5 @@ export const CardBoxStyles = {
 export const CardTitleStyles = {
   height: Size.card.HEADER_HEIGHT,
   fontSize: Size.card.HEADER_FONT,
-  color: 'HighlightText',
+  color: Colors.Card.TITLE,
 } as SxProps

@@ -10,6 +10,7 @@ const Colors = {
 
   Card: {
     CONTAINER: `divider`,
+    TITLE: '#FFFA',
   },
 
   Modal: {

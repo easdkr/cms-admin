@@ -1,7 +1,8 @@
-export const ContentsDefaultData = [
+export const ContentsData = [
   {
     author: 'TVN',
-    banner: 'https://d1lbsellgkzwc6.cloudfront.net/03956a8149b040678ce484a28b261d4b',
+    banner:
+      'https://d1lbsellgkzwc6.cloudfront.net/03956a8149b040678ce484a28b261d4b',
     category: {
       id: 14,
       name: 'K-POP',
@@ -13,7 +14,8 @@ export const ContentsDefaultData = [
   },
   {
     author: 'GENIE MUSIC X ALPHACIRCLE',
-    banner: 'https://d1lbsellgkzwc6.cloudfront.net/56238a2b9ebb498c94e7dc58985c58ee',
+    banner:
+      'https://d1lbsellgkzwc6.cloudfront.net/56238a2b9ebb498c94e7dc58985c58ee',
     category: {
       id: 14,
       name: 'K-POP',
@@ -25,7 +27,8 @@ export const ContentsDefaultData = [
   },
   {
     author: 'GENIE MUSIC X ALPHACIRCLE',
-    banner: 'https://d1lbsellgkzwc6.cloudfront.net/e6e24c5c50a141cebfa1bf8a590e93c6',
+    banner:
+      'https://d1lbsellgkzwc6.cloudfront.net/e6e24c5c50a141cebfa1bf8a590e93c6',
     category: {
       id: 14,
       name: 'K-POP',
@@ -37,7 +40,8 @@ export const ContentsDefaultData = [
   },
   {
     author: '여주시립박물관',
-    banner: 'https://d1lbsellgkzwc6.cloudfront.net/cfbc0025ac874c868bf3ac8d14800a06',
+    banner:
+      'https://d1lbsellgkzwc6.cloudfront.net/cfbc0025ac874c868bf3ac8d14800a06',
     category: {
       id: 5,
       name: 'Culture & History',
@@ -49,7 +53,8 @@ export const ContentsDefaultData = [
   },
   {
     author: 'GENIE MUSIC X ALPHACIRCLE',
-    banner: 'https://d1lbsellgkzwc6.cloudfront.net/f39bd4c73e5546869482c333645622f6',
+    banner:
+      'https://d1lbsellgkzwc6.cloudfront.net/f39bd4c73e5546869482c333645622f6',
     category: {
       id: 14,
       name: 'K-POP',
@@ -61,7 +66,8 @@ export const ContentsDefaultData = [
   },
   {
     author: 'CJ E&M',
-    banner: 'https://d1lbsellgkzwc6.cloudfront.net/8dc998f2652d40b697a4034643815a24',
+    banner:
+      'https://d1lbsellgkzwc6.cloudfront.net/8dc998f2652d40b697a4034643815a24',
     category: {
       id: 1,
       name: 'Performance',
@@ -73,7 +79,8 @@ export const ContentsDefaultData = [
   },
   {
     author: '세종문화회관 미술관',
-    banner: 'https://d1lbsellgkzwc6.cloudfront.net/7f73c1114c17419594bb1a5501c60f2a',
+    banner:
+      'https://d1lbsellgkzwc6.cloudfront.net/7f73c1114c17419594bb1a5501c60f2a',
     category: {
       id: 2,
       name: 'Exhibition',
@@ -85,7 +92,8 @@ export const ContentsDefaultData = [
   },
   {
     author: 'PLATFORM-L',
-    banner: 'https://d1lbsellgkzwc6.cloudfront.net/c7d294706b7b449996c36412260e5794',
+    banner:
+      'https://d1lbsellgkzwc6.cloudfront.net/c7d294706b7b449996c36412260e5794',
     category: {
       id: 3,
       name: 'Contemporary Art',
@@ -97,7 +105,8 @@ export const ContentsDefaultData = [
   },
   {
     author: '디자인하우스',
-    banner: 'https://d1lbsellgkzwc6.cloudfront.net/652fa965e4b84bfeb52cbaec0d80df3a',
+    banner:
+      'https://d1lbsellgkzwc6.cloudfront.net/652fa965e4b84bfeb52cbaec0d80df3a',
     category: {
       id: 2,
       name: 'Exhibition',
@@ -109,7 +118,8 @@ export const ContentsDefaultData = [
   },
   {
     author: 'Alleyway',
-    banner: 'https://d1lbsellgkzwc6.cloudfront.net/059192227987434db60d2c395c10fb5f',
+    banner:
+      'https://d1lbsellgkzwc6.cloudfront.net/059192227987434db60d2c395c10fb5f',
     category: {
       id: 3,
       name: 'Contemporary Art',
@@ -121,7 +131,8 @@ export const ContentsDefaultData = [
   },
   {
     author: 'Alleyway',
-    banner: 'https://d1lbsellgkzwc6.cloudfront.net/f7b17b2b703d419f85cd54a51972e84e',
+    banner:
+      'https://d1lbsellgkzwc6.cloudfront.net/f7b17b2b703d419f85cd54a51972e84e',
     category: {
       id: 3,
       name: 'Contemporary Art',
@@ -133,7 +144,8 @@ export const ContentsDefaultData = [
   },
   {
     author: '한국공예·디자인문화진흥원',
-    banner: 'https://d1lbsellgkzwc6.cloudfront.net/f351a6a323754e65814efa5b77d4a8a1',
+    banner:
+      'https://d1lbsellgkzwc6.cloudfront.net/f351a6a323754e65814efa5b77d4a8a1',
     category: {
       id: 5,
       name: 'Culture & History',
@@ -145,7 +157,8 @@ export const ContentsDefaultData = [
   },
   {
     author: '첼리스트 이정현',
-    banner: 'https://d1lbsellgkzwc6.cloudfront.net/dcca818ec611405e9c6e8b2e1b006970',
+    banner:
+      'https://d1lbsellgkzwc6.cloudfront.net/dcca818ec611405e9c6e8b2e1b006970',
     category: {
       id: 1,
       name: 'Performance',
@@ -157,7 +170,8 @@ export const ContentsDefaultData = [
   },
   {
     author: '민병채 감독',
-    banner: 'https://d1lbsellgkzwc6.cloudfront.net/a36736b4320f40bb97c84a1f65ee97c0',
+    banner:
+      'https://d1lbsellgkzwc6.cloudfront.net/a36736b4320f40bb97c84a1f65ee97c0',
     category: {
       id: 4,
       name: 'Movie',
@@ -169,7 +183,8 @@ export const ContentsDefaultData = [
   },
   {
     author: '민병채 감독',
-    banner: 'https://d1lbsellgkzwc6.cloudfront.net/95b0e987165e47ee8c914012d7f639a1',
+    banner:
+      'https://d1lbsellgkzwc6.cloudfront.net/95b0e987165e47ee8c914012d7f639a1',
     category: {
       id: 4,
       name: 'Movie',
@@ -181,7 +196,8 @@ export const ContentsDefaultData = [
   },
   {
     author: '',
-    banner: 'https://d1lbsellgkzwc6.cloudfront.net/f5c95965b401487c904baf1386c98e72',
+    banner:
+      'https://d1lbsellgkzwc6.cloudfront.net/f5c95965b401487c904baf1386c98e72',
     category: {
       id: 3,
       name: 'Contemporary Art',
@@ -193,7 +209,8 @@ export const ContentsDefaultData = [
   },
   {
     author: '',
-    banner: 'https://d1lbsellgkzwc6.cloudfront.net/2490858d4ffc4004ba087ae824dc84a2',
+    banner:
+      'https://d1lbsellgkzwc6.cloudfront.net/2490858d4ffc4004ba087ae824dc84a2',
     category: {
       id: 3,
       name: 'Contemporary Art',
@@ -205,7 +222,8 @@ export const ContentsDefaultData = [
   },
   {
     author: '임하룡,한상윤',
-    banner: 'https://d1lbsellgkzwc6.cloudfront.net/898559a5370a4632a50b729c83df395d',
+    banner:
+      'https://d1lbsellgkzwc6.cloudfront.net/898559a5370a4632a50b729c83df395d',
     category: {
       id: 2,
       name: 'Exhibition',
@@ -217,7 +235,8 @@ export const ContentsDefaultData = [
   },
   {
     author: '뮤지엄그라운드',
-    banner: 'https://d1lbsellgkzwc6.cloudfront.net/8b5d90ac71854793b63c4e33ba25c099',
+    banner:
+      'https://d1lbsellgkzwc6.cloudfront.net/8b5d90ac71854793b63c4e33ba25c099',
     category: {
       id: 2,
       name: 'Exhibition',
@@ -229,7 +248,8 @@ export const ContentsDefaultData = [
   },
   {
     author: '나얼',
-    banner: 'https://d1lbsellgkzwc6.cloudfront.net/f4aa9d9bad3048cf9837dce9932c6ece',
+    banner:
+      'https://d1lbsellgkzwc6.cloudfront.net/f4aa9d9bad3048cf9837dce9932c6ece',
     category: {
       id: 2,
       name: 'Exhibition',

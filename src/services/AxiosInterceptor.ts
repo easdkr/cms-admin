@@ -1,4 +1,9 @@
-import axios, { AxiosRequestConfig, AxiosResponse, AxiosError, AxiosInstance } from 'axios'
+import axios, {
+  AxiosRequestConfig,
+  AxiosResponse,
+  AxiosError,
+  AxiosInstance,
+} from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AuthStorage } from 'services/storages'
@@ -11,6 +16,7 @@ const httpClient: AxiosInstance = axios.create({
 // request interceptor
 httpClient.interceptors.request.use((config: AxiosRequestConfig) => {
   const token = AuthStorage.get()
+
   // eslint-disable-next-line no-param-reassign
   config.headers.Authorization = `Bearer ${token}`
   return config
@@ -32,7 +38,10 @@ const AxiosInterceptor = ({ children }: any) => {
       return Promise.reject()
     }
 
-    const interceptor = httpClient.interceptors.response.use(resInterceptor, errInterceptor)
+    const interceptor = httpClient.interceptors.response.use(
+      resInterceptor,
+      errInterceptor,
+    )
 
     setIntercepted(true)
 
@@ -45,4 +54,5 @@ const AxiosInterceptor = ({ children }: any) => {
 
 export default httpClient
 export { AxiosInterceptor }
+
 // https://dev.to/arianhamdi/react-hooks-in-axios-interceptors-3e1h

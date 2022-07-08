@@ -1,9 +1,10 @@
 import { Chip } from '@mui/material'
+import { ReactNode } from 'react'
 import { TagStyle } from './styles'
 
 export interface TagData {
   id: number
-  data: string
+  data: ReactNode
 }
 
 export interface TagProps {

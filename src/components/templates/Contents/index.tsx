@@ -1,27 +1,21 @@
-import MediaCard from 'components/molecules/MediaCard'
-import { Box, Grid, SxProps } from '@mui/material'
-import { Content } from 'models/contents'
-import Size from 'utils/styles/size'
-import { ContentsLayoutStyle } from './styles'
+import ContentEditor from 'components/organisms/ContentEditor'
+import ContentsCardList from 'components/organisms/ContentsCardList'
+import useContents from './hooks/useContents'
 
-interface Props {
-  contents: Content[]
-  onCardClick: any
-}
+function Contents() {
+  const { dialogOpen, handleDialogClose, handleCardClick, selectedContentsId } =
+    useContents()
 
-export default function Contents({ contents, onCardClick }: Props) {
   return (
-    <Box sx={ContentsLayoutStyle}>
-      {contents.map(item => (
-        <MediaCard
-          imageSource={item.banner}
-          title={item.title}
-          key={`Card, ${item.id}`}
-          onClick={() => {
-            onCardClick(item.id)
-          }}
-        />
-      ))}
-    </Box>
+    <>
+      <ContentsCardList onCardClick={handleCardClick} />
+      <ContentEditor
+        open={dialogOpen}
+        onClose={handleDialogClose}
+        selectedContentsId={selectedContentsId}
+      />
+    </>
   )
 }
+
+export default Contents

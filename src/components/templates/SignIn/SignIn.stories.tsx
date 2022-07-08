@@ -21,7 +21,7 @@ const Template: Story<any> = args => {
 export const Default = Template.bind({})
 
 Default.args = {
-  onInputChange: () => {},
-  onLogin: () => {},
-  onEnterKeyDown: () => {},
+  // onInputChange: () => {},
+  // onLogin: () => {},
+  // onEnterKeyDown: () => {},
 }

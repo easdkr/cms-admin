@@ -13,11 +13,6 @@ export default function useAuth() {
     password: '',
   })
 
-  useEffect(() => {
-    return () => {
-      setAccount(null)
-    }
-  }, [])
   const handleInputChange = (e: any) => {
     const { name, value } = e.target
     setAccount({ ...account, [name]: value })
@@ -36,7 +31,7 @@ export default function useAuth() {
     const res = await getToken(payload)
 
     if (res && res.data.token) {
-      const {token} = res.data
+      const { token } = res.data
       AuthStorage.set(token)
       navigate('/')
     }
@@ -48,8 +43,8 @@ export default function useAuth() {
   }
 
   const checkAuth = async () => {
-    const check = await tokenCheck();
-    return check;
+    const check = await tokenCheck()
+    return check
   }
 
   const getAuthToken = () => {

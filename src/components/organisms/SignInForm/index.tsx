@@ -1,27 +1,44 @@
-import LogoImage from 'components/atoms/LogoImage'
+import { memo } from 'react'
 import { Button, TextField } from '@mui/material'
 import { Box } from '@mui/system'
+import LogoImage from 'components/atoms/LogoImage'
+import useAuth from 'hooks/useAuth'
 import { ButtonBoxStyle, ButtonStyle, SignInBoxStyles } from './styles'
 
-interface Props {
-  onInputChange: (e: any) => void
-  onLogin: () => Promise<void>
-  onEnterKeyDown: (e: any) => void
-}
+function SignInForm() {
+  const { handleInputChange, handleEnterKeyDown, handleLogin } = useAuth()
 
-export default function SignInForm({ onInputChange, onLogin, onEnterKeyDown }: Props) {
   return (
     <Box sx={SignInBoxStyles}>
       <LogoImage />
-      <TextField label="username" name="username" type="text" onChange={onInputChange} />
 
-      <TextField label="password" name="password" type="password" onChange={onInputChange} onKeyDown={onEnterKeyDown} />
+      <TextField
+        label="username"
+        name="username"
+        type="text"
+        onChange={handleInputChange}
+      />
+
+      <TextField
+        label="password"
+        name="password"
+        type="password"
+        onChange={handleInputChange}
+        onKeyDown={handleEnterKeyDown}
+      />
 
       <Box sx={ButtonBoxStyle}>
-        <Button sx={ButtonStyle} color="info" variant="contained" onClick={onLogin}>
+        <Button
+          sx={ButtonStyle}
+          color="info"
+          variant="contained"
+          onClick={handleLogin}
+        >
           SIGN IN
         </Button>
       </Box>
     </Box>
   )
 }
+
+export default memo(SignInForm)

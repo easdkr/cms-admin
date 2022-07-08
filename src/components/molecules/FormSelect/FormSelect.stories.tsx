@@ -1,6 +1,6 @@
 import { ThemeProvider } from '@mui/material'
 import { Meta, Story } from '@storybook/react'
-import { CategoryDefaultData } from 'components/organisms/ContentDetails/ContentDetails.data'
+import { CategoryDefaultData } from 'components/organisms/ContentEditor/ContentEditor.data'
 import { Category } from 'models/contents'
 import { darktheme, GlobalStyle } from 'styles'
 import FormSelect, { FormSelectProps } from '.'
