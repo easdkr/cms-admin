@@ -14,7 +14,7 @@ import { TagInputProps } from 'components/molecules/TagInput'
 import { TimeInputProps } from 'components/molecules/TimeInput'
 import useDatePicker from 'hooks/useDatePicker'
 import { useInput } from 'hooks/useInput'
-import { Category } from 'models/contents'
+import { Category, ContentDetailsData } from 'models/contents'
 import { useState } from 'react'
 import { darktheme, GlobalStyle } from 'styles'
 import { formatBytes, stringsToTagData } from 'utils'
@@ -37,7 +37,44 @@ const categories = CategoryDefaultData
 
 // eslint-disable-next-line react/function-component-definition
 const Template: Story<ContentEditorViewsProps> = args => {
-  const categoryInput = useInput(contentDetailsData.category.name)
+  const [contentDetailsTextData, setContentDetialsTextData] = useState<ContentDetailsData>(contentDetailsData)
+  
+  const handleTextChange = (e : React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> ) => {
+    const {name, value} = e.target;
+    setContentDetialsTextData(prevState => ({...prevState, [name]: value}))
+  } 
+
+  // const handle 
+  return (
+    <ThemeProvider theme={darktheme}>
+      <GlobalStyle />
+      {/* <ContentEditorViews
+      
+        {...args}
+        categoryProps={categoryProps}
+        titleProps={titleProps}
+        authorProps={authorProps}
+        descriptionProps={descriptionsProps}
+        runningTimeProps={runningTimeProps}
+        tagProps={tagsProps}
+        recordedLocationProps={recordedLocationProps}
+        recordedAtProps={recordedAtProps}
+        lengthProps={lengthProps}
+      /> */}
+    </ThemeProvider>
+  )
+}
+
+export const Default = Template.bind({})
+
+Default.args = {
+  contentsDetailsData: contentDetailsData,
+  categories,
+}
+
+
+/*
+const categoryInput = useInput(contentDetailsData.category.name)
   const titleInput = useInput(contentDetailsData.title)
   const authorInput = useInput(contentDetailsData.author)
   const descriptionInput = useInput(contentDetailsData.description)
@@ -113,29 +150,4 @@ const Template: Story<ContentEditorViewsProps> = args => {
     label: '용량',
     value: length,
   }
-
-  return (
-    <ThemeProvider theme={darktheme}>
-      <GlobalStyle />
-      <ContentEditorViews
-        {...args}
-        categoryProps={categoryProps}
-        titleProps={titleProps}
-        authorProps={authorProps}
-        descriptionProps={descriptionsProps}
-        runningTimeProps={runningTimeProps}
-        tagProps={tagsProps}
-        recordedLocationProps={recordedLocationProps}
-        recordedAtProps={recordedAtProps}
-        lengthProps={lengthProps}
-      />
-    </ThemeProvider>
-  )
-}
-
-export const Default = Template.bind({})
-
-Default.args = {
-  contentsDetailsData: contentDetailsData,
-  categories,
-}
+  */

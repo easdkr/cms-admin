@@ -1,19 +1,30 @@
 import { InputAdornment, TextField } from '@mui/material'
-import Tags, { TagProps } from 'components/atoms/Tags'
+import Tags, { TagData, TagProps } from 'components/atoms/Tags'
 import React from 'react'
 import useTagInput from './hooks/useTagInput'
 
 export interface TagInputProps {
   label?: string
   color?: 'error' | 'primary' | 'secondary' | 'info' | 'success' | 'warning'
-  tagProps: TagProps
+  tagValue: TagData[]
+  onTagChange: (value: TagData[] | null) => void
 }
 
-function TagInput({ label, color, tagProps }: TagInputProps) {
-  const { handleBlur, handleKeyDown, handleChange, value } = useTagInput(
-    tagProps.datas,
-    tagProps.setDatas,
-  )
+function TagInput({ label, color, onTagChange, tagValue }: TagInputProps) {
+  const {
+    handleBlur,
+    handleKeyDown,
+    handleChange,
+    handleTagDelete,
+    value,
+    tags,
+  } = useTagInput(tagValue, onTagChange)
+
+  const _tagProps: TagProps = {
+    datas: tags,
+    onDelete: handleTagDelete,
+    size: 'small',
+  }
 
   return (
     <TextField
@@ -23,7 +34,7 @@ function TagInput({ label, color, tagProps }: TagInputProps) {
       InputProps={{
         startAdornment: (
           <InputAdornment position="start">
-            <Tags {...tagProps} />
+            <Tags {..._tagProps} />
           </InputAdornment>
         ),
       }}
@@ -34,4 +45,4 @@ function TagInput({ label, color, tagProps }: TagInputProps) {
   )
 }
 
-export default React.memo(TagInput)
+export default TagInput

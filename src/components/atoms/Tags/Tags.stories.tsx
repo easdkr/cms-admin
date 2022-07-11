@@ -14,10 +14,14 @@ export default {
 const Template: Story<TagProps> = args => {
   const [datas, setDatas] = useState<TagData[]>(TagDatas)
 
+  const onDelete = (DataToDelete: TagData) => () => { setDatas(prev => 
+    datas.filter((data: TagData) => data.id !== DataToDelete.id),
+  )}
+
   return (
     <ThemeProvider theme={darktheme}>
       <GlobalStyle />
-      <Tags datas={datas} setDatas={setDatas} {...args} />
+      <Tags datas={datas} {...args} onDelete={onDelete} />
     </ThemeProvider>
   )
 }

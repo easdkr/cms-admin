@@ -62,7 +62,7 @@ function ContentEditorViews({
           <FormSelect {...categoryProps} />
 
           {/* title */}
-          <TextField {...titleProps} />
+          <TextField  {...titleProps} />
 
           {/* author */}
           <TextField {...authorProps} />

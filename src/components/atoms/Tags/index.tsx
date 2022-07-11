@@ -1,5 +1,5 @@
 import { Chip } from '@mui/material'
-import { ReactNode } from 'react'
+import { ReactNode, useState } from 'react'
 import { TagStyle } from './styles'
 
 export interface TagData {
@@ -9,7 +9,6 @@ export interface TagData {
 
 export interface TagProps {
   datas: TagData[]
-  setDatas: React.Dispatch<TagData[]>
   color?:
     | 'default'
     | 'error'
@@ -19,15 +18,11 @@ export interface TagProps {
     | 'success'
     | 'warning'
   size?: 'small' | 'medium'
+  onDelete: (DataToDelete: TagData) => () => void
 }
 
 export default function Tags({ ...props }: TagProps) {
-  const handleDelete = (DataToDelete: TagData) => () => {
-    props.setDatas(
-      props.datas.filter((data: TagData) => data.id !== DataToDelete.id),
-    )
-  }
-
+  
   return (
     <>
       {props.datas.map((data: TagData) => (
@@ -36,7 +31,7 @@ export default function Tags({ ...props }: TagProps) {
           color={props.color}
           label={data.data}
           size={props.size}
-          onDelete={handleDelete(data)}
+          onDelete={props.onDelete(data)}
           key={`tags, ${data.id}`}
         />
       ))}
