@@ -1,37 +1,43 @@
 import { useInput } from 'hooks/useInput'
+import useMultiInput from 'hooks/useMultiInput'
 import { useCallback, useEffect, useState } from 'react'
 import { secondsToTimes, timesToSeconds, timeValidator } from 'utils'
 
 export default function useTimeInput(
   timeInSeconds: number,
-  setTimeInSeconds: any,
+  onTimeChange: (value: number) => void,
 ) {
   const { hours, minutes, seconds } = secondsToTimes(timeInSeconds)
-  const hoursInput = useInput(hours, timeValidator)
-  const minutesInput = useInput(minutes, timeValidator)
-  const secondsInput = useInput(seconds, timeValidator)
-
+  const { value, onChange } = useMultiInput(
+    {
+      hours: hours,
+      minutes: minutes,
+      seconds: seconds,
+    },
+    timeValidator,
+  )
   useEffect(() => {
-    setTimeInSeconds(
-      timesToSeconds(hoursInput.value, minutesInput.value, secondsInput.value),
-    )
-  }, [hoursInput.value, minutesInput.value, secondsInput.value])
+    onTimeChange(timesToSeconds(value.hours, value.minutes, value.seconds))
+  }, [value])
 
   const hoursProps = {
-    value: hoursInput.value,
-    onChange: hoursInput.onChange,
+    value: value.hours,
+    onChange: onChange,
+    name: 'hours',
     label: 'hours',
     type: 'number',
   }
   const minutesProps = {
-    value: minutesInput.value,
-    onChange: minutesInput.onChange,
+    value: value.minutes,
+    onChange: onChange,
+    name: 'minutes',
     label: 'minutes',
     type: 'number',
   }
   const secondsProps = {
-    value: secondsInput.value,
-    onChange: secondsInput.onChange,
+    value: value.seconds,
+    onChange: onChange,
+    name: 'seconds',
     label: 'seconds',
     type: 'number',
   }

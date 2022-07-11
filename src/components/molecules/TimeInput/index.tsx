@@ -7,13 +7,13 @@ import { ContainerStyle, inputStyle } from './styles'
 
 export interface TimeInputProps {
   timeInSeconds: number
-  setTimeInSeconds: any
+  onChange: (value: number) => void
 }
 
-function TimeInput({ timeInSeconds, setTimeInSeconds }: TimeInputProps) {
+function TimeInput({ timeInSeconds, onChange }: TimeInputProps) {
   const { hoursProps, minutesProps, secondsProps } = useTimeInput(
     timeInSeconds,
-    setTimeInSeconds,
+    onChange,
   )
   return (
     <Box sx={ContainerStyle}>

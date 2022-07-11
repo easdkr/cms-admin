@@ -17,13 +17,15 @@ const testTimeInseconds = 3599
 // eslint-disable-next-line react/function-component-definition
 const Template: Story<TimeInputProps> = (args: TimeInputProps) => {
   const [timeInSeconds, setTimeInSeconds] = useState(testTimeInseconds)
+
+  const handleChange = (value: number) => {
+    setTimeInSeconds(value)
+  }
+
   return (
     <ThemeProvider theme={darktheme}>
       <GlobalStyle />
-      <TimeInput
-        timeInSeconds={timeInSeconds}
-        setTimeInSeconds={setTimeInSeconds}
-      />
+      <TimeInput timeInSeconds={timeInSeconds} onChange={handleChange} />
       <FormHeader text={timeInSeconds.toString()} />
     </ThemeProvider>
   )

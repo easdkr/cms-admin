@@ -1,7 +1,8 @@
-import { ThemeProvider } from '@mui/material'
+import { SelectChangeEvent, ThemeProvider } from '@mui/material'
 import { Meta, Story } from '@storybook/react'
 import { CategoryDefaultData } from 'components/organisms/ContentEditor/ContentEditor.data'
 import { Category } from 'models/contents'
+import { ReactNode } from 'react'
 import { darktheme, GlobalStyle } from 'styles'
 import FormSelect, { FormSelectProps } from '.'
 
@@ -16,10 +17,17 @@ const categories = CategoryDefaultData
 const Template: Story<FormSelectProps<Category>> = (
   args: FormSelectProps<Category>,
 ) => {
+  const handleChange = (
+    event: SelectChangeEvent<unknown>,
+    child: ReactNode,
+  ) => {
+    const index = categories.findIndex(i => i.name == event.target.value)
+    console.log(JSON.stringify(categories[index], null, 2))
+  }
   return (
     <ThemeProvider theme={darktheme}>
       <GlobalStyle />
-      <FormSelect {...args} />
+      <FormSelect onChange={handleChange} {...args} />
     </ThemeProvider>
   )
 }

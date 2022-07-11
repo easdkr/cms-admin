@@ -4,7 +4,7 @@ import { TagStyle } from './styles'
 
 export interface TagData {
   id: number
-  data: ReactNode
+  data: string
 }
 
 export interface TagProps {
@@ -18,21 +18,20 @@ export interface TagProps {
     | 'success'
     | 'warning'
   size?: 'small' | 'medium'
-  onDelete: (DataToDelete: TagData) => () => void
+  onDelete?: (DataToDelete: TagData) => () => void
 }
 
 export default function Tags({ ...props }: TagProps) {
-  
   return (
     <>
-      {props.datas.map((data: TagData) => (
+      {props.datas.map((data: TagData, index: number) => (
         <Chip
           sx={TagStyle}
           color={props.color}
           label={data.data}
           size={props.size}
           onDelete={props.onDelete(data)}
-          key={`tags, ${data.id}`}
+          key={`${index}, ${data.data}`}
         />
       ))}
     </>
