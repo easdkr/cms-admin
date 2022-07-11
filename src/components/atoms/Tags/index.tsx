@@ -31,7 +31,7 @@ export default function Tags({ ...props }: TagProps) {
           label={data.data}
           size={props.size}
           onDelete={props.onDelete(data)}
-          key={`${index}, ${data.data}`}
+          key={`Tags, ${data.id}`}
         />
       ))}
     </>

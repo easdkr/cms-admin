@@ -20,7 +20,7 @@ function TagInput({ label, color, onTagChange, tagValue }: TagInputProps) {
     tags,
   } = useTagInput(tagValue, onTagChange)
 
-  const _tagProps: TagProps = {
+  const tagProp: TagProps = {
     datas: tags,
     onDelete: handleTagDelete,
     size: 'small',
@@ -34,7 +34,7 @@ function TagInput({ label, color, onTagChange, tagValue }: TagInputProps) {
       InputProps={{
         startAdornment: (
           <InputAdornment position="start">
-            <Tags {..._tagProps} />
+            <Tags {...tagProp} />
           </InputAdornment>
         ),
       }}

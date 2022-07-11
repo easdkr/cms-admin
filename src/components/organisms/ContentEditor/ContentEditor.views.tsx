@@ -30,7 +30,7 @@ export interface ContentEditorViewsProps {
   runningTimeProps: TimeInputProps
   tagProps: TagInputProps
   recordedLocationProps: TextFieldProps
-  recordedAtProps: DesktopDatePickerProps<any, any>
+  recordedAtProps: any
   lengthProps: TextFieldProps
 }
 
@@ -62,13 +62,13 @@ function ContentEditorViews({
           <FormSelect {...categoryProps} />
 
           {/* title */}
-          <TextField  {...titleProps} />
+          <TextField {...titleProps} />
 
           {/* author */}
           <TextField {...authorProps} />
 
           {/* description */}
-          <TextField multiline maxRows={5} {...descriptionProps} />
+          <TextField multiline rows={5} {...descriptionProps} />
 
           {/* running time */}
           <TimeInput {...runningTimeProps} />
@@ -77,7 +77,12 @@ function ContentEditorViews({
           <TextField {...recordedLocationProps} />
 
           {/* recorded at */}
-          <DesktopDatePicker {...recordedAtProps} />
+          <DesktopDatePicker
+            {...recordedAtProps}
+            renderInput={(params: any) => (
+              <TextField error={false} disabled {...params} />
+            )}
+          />
 
           {/* tag */}
           <TagInput {...tagProps} />

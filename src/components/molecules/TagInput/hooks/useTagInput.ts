@@ -35,7 +35,7 @@ export default function useTagInput(
   const addTags = () => {
     if (!input.isEmpty()) {
       const newTag: TagData = {
-        id: tags[tags.length - 1].id + 1,
+        id: tags.length === 0 ? 0 : tags[tags.length - 1].id + 1,
         data: input.value,
       }
       setTags([...tags, newTag])
@@ -54,6 +54,6 @@ export default function useTagInput(
     handleKeyDown,
     handleBlur,
     handleTagDelete,
-    tags: tags,
+    tags,
   }
 }

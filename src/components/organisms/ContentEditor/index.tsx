@@ -21,40 +21,36 @@ function ContentEditor({
   onClose,
   selectedContentsId,
 }: ContentsDetailsProps) {
-  const { categories, contentDetailsData, handleDialogClose } =
-    useContentEditor(selectedContentsId)
-  const categoryInput = useInput(contentDetailsData.category.name)
-  const titleInput = useInput(contentDetailsData.title)
-  // const authorInput = useInput(contentDetailsData.author)
-  // const descriptionInput = useInput(contentDetailsData.description)
-
-  useEffect(() => {
-    categoryInput.set(contentDetailsData.category.name)
-  }, [categories, contentDetailsData])
-
-  const categoryProps: FormSelectProps<Category> = {
-    label: 'category',
-    value: categoryInput.value,
-    onChange: categoryInput.onChange,
-    items: categories,
-  }
-
-  const titleProps: TextFieldProps = {
-    label: 'title',
-    value: titleInput.value,
-    onChange: titleInput.onChange,
-  }
-
+  const {
+    categories,
+    contentDetailsData,
+    handleDialogClose,
+    authorProps,
+    categoryProps,
+    descriptionsProps,
+    lengthProps,
+    recordedAtProps,
+    recordedLocationProps,
+    runningTimeProps,
+    tagsProps,
+    titleProps,
+  } = useContentEditor(selectedContentsId, open)
   return (
     <Dialog fullWidth open={open} onClose={handleDialogClose(onClose)}>
       <DialogContent>
-        {/* <ContentEditorViews
+        <ContentEditorViews
           categories={categories}
           contentsDetailsData={contentDetailsData}
           categoryProps={categoryProps}
           titleProps={titleProps}
-          
-        /> */}
+          authorProps={authorProps}
+          descriptionProps={descriptionsProps}
+          lengthProps={lengthProps}
+          recordedAtProps={recordedAtProps}
+          recordedLocationProps={recordedLocationProps}
+          runningTimeProps={runningTimeProps}
+          tagProps={tagsProps}
+        />
       </DialogContent>
     </Dialog>
   )

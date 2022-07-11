@@ -7,36 +7,39 @@ export default function useTimeInput(
   timeInSeconds: number,
   onTimeChange: (value: number) => void,
 ) {
-  const { hours, minutes, seconds } = secondsToTimes(timeInSeconds)
-  const { value, onChange } = useMultiInput(
+  const { value, onChange, setValue } = useMultiInput(
     {
-      hours: hours,
-      minutes: minutes,
-      seconds: seconds,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
     },
     timeValidator,
   )
   useEffect(() => {
-    onTimeChange(timesToSeconds(value.hours, value.minutes, value.seconds))
-  }, [value])
+    if (timeInSeconds > 0) {
+      console.log(` time in seconds : ${timeInSeconds}`)
+      setValue(secondsToTimes(timeInSeconds))
+      onTimeChange(timesToSeconds(value.hours, value.minutes, value.seconds))
+    }
+  }, [timeInSeconds])
 
   const hoursProps = {
     value: value.hours,
-    onChange: onChange,
+    onChange,
     name: 'hours',
     label: 'hours',
     type: 'number',
   }
   const minutesProps = {
     value: value.minutes,
-    onChange: onChange,
+    onChange,
     name: 'minutes',
     label: 'minutes',
     type: 'number',
   }
   const secondsProps = {
     value: value.seconds,
-    onChange: onChange,
+    onChange,
     name: 'seconds',
     label: 'seconds',
     type: 'number',

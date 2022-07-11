@@ -126,7 +126,7 @@ const Template: Story<ContentEditorViewsProps> = args => {
 
   const recordedAtProps = {
     label: '촬영 시간',
-    value: contentDetailsData.recorded_at,
+    value: contentDetailsData.recorded_at || null,
     inputFormat: 'yyyy.MM.dd',
     onChange: handleRecordedAtChange,
     renderInput: (params: any) => <TextField {...params} />,

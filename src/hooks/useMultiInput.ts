@@ -17,6 +17,5 @@ export default function useMultiInput(
   const isEmpty = () => {
     return value === undefined || value === null || value === ''
   }
-
-  return { value, onChange }
+  return { value, onChange, setValue }
 }

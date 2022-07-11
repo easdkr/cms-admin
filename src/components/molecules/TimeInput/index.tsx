@@ -1,7 +1,5 @@
 import { Box, TextField } from '@mui/material'
-import { useInput } from 'hooks/useInput'
 import { memo } from 'react'
-import { secondsToTimes, timeValidator } from 'utils'
 import useTimeInput from './hooks/useTimeInput'
 import { ContainerStyle, inputStyle } from './styles'
 
@@ -24,4 +22,4 @@ function TimeInput({ timeInSeconds, onChange }: TimeInputProps) {
   )
 }
 
-export default TimeInput
+export default memo(TimeInput)
