@@ -3,8 +3,8 @@ import { Meta, Story } from '@storybook/react'
 import { darktheme, GlobalStyle } from 'styles'
 import { useState } from 'react'
 import { TagData, TagProps } from 'components/atoms/Tags'
-import TagInput, { TagInputProps } from '.'
 import { Box, Typography } from '@mui/material'
+import TagInput, { TagInputProps } from '.'
 
 export default {
   title: 'Molecules/TagInput',
@@ -34,7 +34,9 @@ const Template: Story<TagInputProps> = (args: any) => {
           {...args}
           onTagChange={onTagChange}
         />
-        <Typography color={"#FFF"}>{JSON.stringify(sampleState.tags, null, 2)}</Typography>
+        <Typography color="#FFF">
+          {JSON.stringify(sampleState.tags, null, 2)}
+        </Typography>
       </Box>
     </ThemeProvider>
   )

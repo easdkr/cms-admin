@@ -22,9 +22,9 @@ const EMPTY_CONTENT_DETAILS_DATA = {
   colors: '',
   id: UNSET,
   length: UNSET,
-  recorded_at: null,
-  recorded_location: '',
-  running_time: UNSET,
+  recordedAt: null,
+  recordedLocation: '',
+  runningTime: UNSET,
   sorting: UNSET,
   tags: [],
   title: '',
@@ -142,20 +142,20 @@ export default function useContentEditor(id: number, open: boolean) {
   }
 
   const runningTimeProps: TimeInputProps = {
-    timeInSeconds: contentDetailsData.running_time,
+    timeInSeconds: contentDetailsData.runningTime,
     onChange: handleRunningTimeChange,
   }
 
   const recordedLocationProps: TextFieldProps = {
     label: '촬영 장소',
     name: 'recorded_location',
-    value: contentDetailsData.recorded_location,
+    value: contentDetailsData.recordedLocation,
     onChange: handleTextFieldChange,
   }
 
   const recordedAtProps = {
     label: '촬영 시간',
-    value: contentDetailsData.recorded_at || null,
+    value: contentDetailsData.recordedAt || null,
     inputFormat: 'yyyy.MM.dd',
     onChange: handleRecordedAtChange,
   }

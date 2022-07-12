@@ -4,9 +4,10 @@ import axios, {
   AxiosError,
   AxiosInstance,
 } from 'axios'
+import { camelizeKeys, decamelizeKeys } from 'humps'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { AuthStorage } from 'services/storages'
+import { AuthStorage } from './Storages'
 
 const httpClient: AxiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_HOST,
@@ -15,11 +16,17 @@ const httpClient: AxiosInstance = axios.create({
 
 // request interceptor
 httpClient.interceptors.request.use((config: AxiosRequestConfig) => {
+  const snakeParseConfig = { ...config }
   const token = AuthStorage.get()
-
   // eslint-disable-next-line no-param-reassign
-  config.headers.Authorization = `Bearer ${token}`
-  return config
+  snakeParseConfig.headers.Authorization = `Bearer ${token}`
+  if (snakeParseConfig.headers['Content-Type'] === 'multipart/form-data')
+    return snakeParseConfig
+
+  if (snakeParseConfig.params)
+    snakeParseConfig.params = decamelizeKeys(config.params)
+  if (snakeParseConfig.data) snakeParseConfig.data = decamelizeKeys(config.data)
+  return snakeParseConfig
 })
 
 const AxiosInterceptor = ({ children }: any) => {
@@ -28,6 +35,12 @@ const AxiosInterceptor = ({ children }: any) => {
 
   useEffect(() => {
     const resInterceptor = (response: AxiosResponse<any>) => {
+      if (
+        response.data &&
+        response.headers['content-type'] === 'application/json'
+      ) {
+        response.data = camelizeKeys(response.data)
+      }
       return response
     }
 

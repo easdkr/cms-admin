@@ -1,4 +1,5 @@
 import { TagData } from 'components/atoms/Tags'
+import { v4 as uuidv4 } from 'uuid'
 
 export const secondsToTimes = (timeInSeconds: number) => {
   const hours = Math.floor(timeInSeconds / 3600)
@@ -45,4 +46,8 @@ export const formatBytes = (bytes: number, decimals = 2) => {
   const i = Math.floor(Math.log(bytes) / Math.log(k))
 
   return `${parseFloat((bytes / k ** i).toFixed(dm))} ${sizes[i]}`
+}
+
+export const uuidHex = () => {
+  return uuidv4().replace(/-/g, '')
 }

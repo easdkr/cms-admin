@@ -1,9 +1,7 @@
-import { getToken, tokenCheck } from 'apis/auth'
-import { useEffect, useState } from 'react'
+import { token, tokenCheck } from 'apis/auth'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useSetRecoilState } from 'recoil'
-import { AuthStorage } from 'services/storages'
-import { tokenState } from 'stores/token'
+import { AuthStorage } from 'services/Storages'
 
 export default function useAuth() {
   const navigate = useNavigate()
@@ -28,7 +26,7 @@ export default function useAuth() {
       password: account.password,
     }
 
-    const res = await getToken(payload)
+    const res = await token(payload)
 
     if (res && res.data.token) {
       const { token } = res.data

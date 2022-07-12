@@ -34,6 +34,7 @@ export default {
   component: ContentEditorViews,
 } as Meta
 
+// eslint-disable-next-line no-underscore-dangle
 const _contentDetailsData = ContentDetailsDefaultData
 const categories = CategoryDefaultData
 
@@ -113,20 +114,20 @@ const Template: Story<ContentEditorViewsProps> = args => {
   }
 
   const runningTimeProps: TimeInputProps = {
-    timeInSeconds: contentDetailsData.running_time,
+    timeInSeconds: contentDetailsData.runningTime,
     onChange: handleRunningTimeChange,
   }
 
   const recordedLocationProps: TextFieldProps = {
     label: '촬영 장소',
     name: 'recorded_location',
-    value: contentDetailsData.recorded_location,
+    value: contentDetailsData.recordedLocation,
     onChange: handleTextFieldChange,
   }
 
   const recordedAtProps = {
     label: '촬영 시간',
-    value: contentDetailsData.recorded_at || null,
+    value: contentDetailsData.recordedAt || null,
     inputFormat: 'yyyy.MM.dd',
     onChange: handleRecordedAtChange,
     renderInput: (params: any) => <TextField {...params} />,
@@ -159,7 +160,7 @@ const Template: Story<ContentEditorViewsProps> = args => {
           recordedAtProps={recordedAtProps}
           lengthProps={lengthProps}
         />
-        <Typography color={'#FFF'}>
+        <Typography color="#FFF">
           {JSON.stringify(contentDetailsData, null, 4)}
         </Typography>
       </Stack>
