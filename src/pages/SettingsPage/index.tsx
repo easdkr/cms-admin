@@ -1,4 +1,4 @@
-import Dropzone from 'components/atoms/Dropzone'
+import Dropzone from 'components/atoms/FileDropZone'
 import Settings from 'components/templates/Settings'
 
 export default function index() {

@@ -63,7 +63,7 @@ const Template: Story<ContentEditorViewsProps> = args => {
     child: React.ReactNode,
   ) => {
     const { value } = event.target
-    const categoryIndex = categories.findIndex(i => i.name == value)
+    const categoryIndex = categories.findIndex(i => i.name === value)
     setContentDetialsData(prevState => ({
       ...prevState,
       category: categories[categoryIndex],

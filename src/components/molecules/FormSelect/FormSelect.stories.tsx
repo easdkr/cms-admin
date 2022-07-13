@@ -21,7 +21,7 @@ const Template: Story<FormSelectProps<Category>> = (
     event: SelectChangeEvent<unknown>,
     child: ReactNode,
   ) => {
-    const index = categories.findIndex(i => i.name == event.target.value)
+    const index = categories.findIndex(i => i.name === event.target.value)
     console.log(JSON.stringify(categories[index], null, 2))
   }
   return (
