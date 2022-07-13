@@ -6,28 +6,20 @@ import { AuthStorage } from 'services/Storages'
 export default function useAuth() {
   const navigate = useNavigate()
 
-  const [account, setAccount] = useState({
-    username: '',
-    password: '',
-  })
-
-  const handleInputChange = (e: any) => {
-    const { name, value } = e.target
-    setAccount({ ...account, [name]: value })
-  }
-
-  const handleEnterKeyDown = (e: any) => {
-    if (e.key === 'Enter') handleLogin()
-  }
-
-  const handleLogin = async () => {
-    const payload = {
-      username: account.username,
-      password: account.password,
+  const handleSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault()
+    const target = e.target as typeof e.target & {
+      username: { value: string }
+      password: { value: string }
     }
 
-    const res = await token(payload)
+    const username = target.username.value
+    const password = target.password.value
+    signIn({ username, password })
+  }
 
+  const signIn = async (account: { username: string; password: string }) => {
+    const res = await token(account)
     if (res && res.data.token) {
       const { token } = res.data
       AuthStorage.set(token)
@@ -50,11 +42,9 @@ export default function useAuth() {
   }
 
   return {
-    handleInputChange,
-    handleLogin,
-    handleEnterKeyDown,
     handleLogout,
     checkAuth,
     getAuthToken,
+    handleSubmit,
   }
 }

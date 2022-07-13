@@ -16,7 +16,7 @@ const darktheme = createTheme({
 })
 
 // eslint-disable-next-line func-names
-const Template = function (args : any) {
+const Template = function (args: any) {
   return (
     <BrowserRouter>
       <ThemeProvider theme={darktheme}>
