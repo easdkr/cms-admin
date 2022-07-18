@@ -1,4 +1,4 @@
-import { SelectChangeEvent, ThemeProvider } from '@mui/material'
+import { Button, SelectChangeEvent, ThemeProvider } from '@mui/material'
 import { Meta, Story } from '@storybook/react'
 import { CategoryDefaultData } from 'components/organisms/ContentEditor/ContentEditor.data'
 import { Category } from 'models/contents'
@@ -24,6 +24,7 @@ const Template: Story<FormSelectProps<Category>> = (
     const index = categories.findIndex(i => i.name === event.target.value)
     console.log(JSON.stringify(categories[index], null, 2))
   }
+
   return (
     <ThemeProvider theme={darktheme}>
       <GlobalStyle />

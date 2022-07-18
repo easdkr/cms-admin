@@ -1,13 +1,12 @@
 import { SelectChangeEvent, TextField, TextFieldProps } from '@mui/material'
 import { getCategories, getDetail } from 'apis/contents'
-import { TagData } from 'components/atoms/Tags'
 import { FormSelectProps } from 'components/molecules/FormSelect'
-import { TagInputProps } from 'components/molecules/TagInput'
 import { TimeInputProps } from 'components/molecules/TimeInput'
 import { Category, ContentDetailsData } from 'models/contents'
 import { useEffect, useState } from 'react'
-import { formatBytes, stringsToTagData, tagDataToStrings } from 'utils'
+import { formatBytes } from 'utils'
 import { UNSET } from 'utils/constants/Integers'
+import { TagsProps } from '../ContentEditor.views'
 
 const EMPTY_CONTENT_DETAILS_DATA = {
   assets: [],
@@ -34,7 +33,6 @@ export default function useContentEditor(id: number, open: boolean) {
   const [contentDetailsData, setContentDetailsData] =
     useState<ContentDetailsData>(EMPTY_CONTENT_DETAILS_DATA)
   const [categories, setCategories] = useState<Category[]>([])
-  const [length, setLength] = useState(formatBytes(contentDetailsData.length))
 
   useEffect(() => {
     if (id !== UNSET && open) initializeContentEditor()
@@ -79,13 +77,6 @@ export default function useContentEditor(id: number, open: boolean) {
     console.log({ name, value })
   }
 
-  const handleTagChange = (value: TagData[] | null) => {
-    setContentDetailsData(prevState => ({
-      ...prevState,
-      tags: tagDataToStrings(value),
-    }))
-  }
-
   const handleSelectChange = (
     event: SelectChangeEvent<unknown>,
     child: React.ReactNode,
@@ -101,14 +92,14 @@ export default function useContentEditor(id: number, open: boolean) {
   const handleRunningTimeChange = (value: number) => {
     setContentDetailsData(prevState => ({
       ...prevState,
-      running_time: value,
+      runningTime: value,
     }))
   }
 
   const handleRecordedAtChange = (date: Date | null) => {
     setContentDetailsData(prevState => ({
       ...prevState,
-      recorded_at: date,
+      recordedAt: date,
     }))
   }
 
@@ -148,7 +139,7 @@ export default function useContentEditor(id: number, open: boolean) {
 
   const recordedLocationProps: TextFieldProps = {
     label: '촬영 장소',
-    name: 'recorded_location',
+    name: 'recordedLocation',
     value: contentDetailsData.recordedLocation,
     onChange: handleTextFieldChange,
   }
@@ -156,19 +147,21 @@ export default function useContentEditor(id: number, open: boolean) {
   const recordedAtProps = {
     label: '촬영 시간',
     value: contentDetailsData.recordedAt || null,
+    name: 'recordedAt',
     inputFormat: 'yyyy.MM.dd',
     onChange: handleRecordedAtChange,
-  }
-
-  const tagsProps: TagInputProps = {
-    label: 'tags',
-    tagValue: stringsToTagData(contentDetailsData.tags),
-    onTagChange: handleTagChange,
   }
 
   const lengthProps: TextFieldProps = {
     label: '용량',
     value: formatBytes(contentDetailsData.length),
+  }
+
+  const tagsProps: TagsProps = {
+    value: contentDetailsData.tags,
+    onChange: (e: any, v: any) => {
+      setContentDetailsData(preState => ({ ...preState, tags: v }))
+    },
   }
 
   return {
@@ -178,11 +171,11 @@ export default function useContentEditor(id: number, open: boolean) {
     authorProps,
     categoryProps,
     descriptionsProps,
-    tagsProps,
     titleProps,
     lengthProps,
     recordedAtProps,
     runningTimeProps,
     recordedLocationProps,
+    tagsProps,
   }
 }

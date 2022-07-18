@@ -1,4 +1,3 @@
-import { TagData } from 'components/atoms/Tags'
 import { v4 as uuidv4 } from 'uuid'
 
 export const secondsToTimes = (timeInSeconds: number) => {
@@ -27,14 +26,6 @@ export const timesToSeconds = (
 export const timeValidator = (value: string) => {
   return value === '' || (parseInt(value, 10) >= 0 && parseInt(value, 10) < 60)
 }
-
-export const stringsToTagData = (strings: string[]): TagData[] =>
-  strings.map<TagData>((value, index) => ({
-    id: index,
-    data: value,
-  }))
-export const tagDataToStrings = (tags: TagData[]): string[] =>
-  tags.map<string>((value, index) => value.data)
 
 export const formatBytes = (bytes: number, decimals = 2) => {
   if (bytes === 0) return '0 Bytes'

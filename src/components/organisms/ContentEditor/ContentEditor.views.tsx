@@ -1,51 +1,54 @@
 import {
+  Autocomplete,
+  AutocompleteChangeReason,
+  AutocompleteProps,
+  AutocompleteValue,
   Box,
-  Button,
-  Paper,
   Stack,
   TextField,
   TextFieldProps,
+  UseAutocompleteProps,
 } from '@mui/material'
-import {
-  DesktopDatePicker,
-  DesktopDatePickerProps,
-  LocalizationProvider,
-} from '@mui/x-date-pickers'
+import { DesktopDatePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
 import FormHeader from 'components/atoms/FormHeader'
 import FormSelect, { FormSelectProps } from 'components/molecules/FormSelect'
-import TagInput, { TagInputProps } from 'components/molecules/TagInput'
 import TimeInput, { TimeInputProps } from 'components/molecules/TimeInput'
-import { Category, ContentDetailsData } from 'models/contents'
+import { Category } from 'models/contents'
 import Strings from 'utils/constants/strings'
-import { ContentsDetailLayoutStyles } from './styles'
+
+export interface TagsProps {
+  value: any[]
+  onChange: (
+    event: React.SyntheticEvent,
+    value: any,
+    reason: AutocompleteChangeReason,
+    details?: any,
+  ) => void
+}
 
 export interface ContentEditorViewsProps {
-  contentsDetailsData: ContentDetailsData
-  categories: Category[]
   categoryProps: FormSelectProps<Category>
   titleProps: TextFieldProps
   authorProps: TextFieldProps
   descriptionProps: TextFieldProps
   runningTimeProps: TimeInputProps
-  tagProps: TagInputProps
   recordedLocationProps: TextFieldProps
   recordedAtProps: any
   lengthProps: TextFieldProps
+  tagsProps: TagsProps
 }
 
 function ContentEditorViews({
-  categories,
-  contentsDetailsData,
   titleProps,
   categoryProps,
   authorProps,
   descriptionProps,
   runningTimeProps,
-  tagProps,
   recordedLocationProps,
   recordedAtProps,
   lengthProps,
+  tagsProps,
 }: ContentEditorViewsProps) {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -84,8 +87,15 @@ function ContentEditorViews({
             )}
           />
 
-          {/* tag */}
-          <TagInput {...tagProps} />
+          {/* tags */}
+          <Autocomplete
+            multiple
+            renderInput={params => <TextField {...params} />}
+            freeSolo
+            options={[]}
+            value={tagsProps.value}
+            onChange={tagsProps.onChange}
+          />
 
           {/* length = assets size */}
           <TextField disabled {...lengthProps} />

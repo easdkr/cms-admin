@@ -10,16 +10,12 @@ import {
   Typography,
 } from '@mui/material'
 import { Meta, Story } from '@storybook/react'
-import { TagData, TagProps } from 'components/atoms/Tags'
 import { FormSelectProps } from 'components/molecules/FormSelect'
-import { TagInputProps } from 'components/molecules/TagInput'
 import { TimeInputProps } from 'components/molecules/TimeInput'
-import useDatePicker from 'hooks/useDatePicker'
-import { useInput } from 'hooks/useInput'
 import { Category, ContentDetailsData } from 'models/contents'
 import { useState } from 'react'
 import { darktheme, GlobalStyle } from 'styles'
-import { formatBytes, stringsToTagData, tagDataToStrings } from 'utils'
+import { formatBytes } from 'utils'
 
 import {
   CategoryDefaultData,
@@ -49,13 +45,6 @@ const Template: Story<ContentEditorViewsProps> = args => {
     const { name, value } = e.target
     setContentDetialsData(prevState => ({ ...prevState, [name]: value }))
     console.log({ name, value })
-  }
-
-  const handleTagChange = (value: TagData[] | null) => {
-    setContentDetialsData(prevState => ({
-      ...prevState,
-      tags: tagDataToStrings(value),
-    }))
   }
 
   const handleSelectChange = (
@@ -133,12 +122,6 @@ const Template: Story<ContentEditorViewsProps> = args => {
     renderInput: (params: any) => <TextField {...params} />,
   }
 
-  const tagsProps: TagInputProps = {
-    label: 'tags',
-    tagValue: stringsToTagData(contentDetailsData.tags),
-    onTagChange: handleTagChange,
-  }
-
   const lengthProps: TextFieldProps = {
     label: '용량',
     value: length,
@@ -155,7 +138,6 @@ const Template: Story<ContentEditorViewsProps> = args => {
           authorProps={authorProps}
           descriptionProps={descriptionsProps}
           runningTimeProps={runningTimeProps}
-          tagProps={tagsProps}
           recordedLocationProps={recordedLocationProps}
           recordedAtProps={recordedAtProps}
           lengthProps={lengthProps}
@@ -171,8 +153,8 @@ const Template: Story<ContentEditorViewsProps> = args => {
 export const Default = Template.bind({})
 
 Default.args = {
-  contentsDetailsData: _contentDetailsData,
-  categories,
+  // contentsDetailsData: _contentDetailsData,
+  // categories,
 }
 
 /*
