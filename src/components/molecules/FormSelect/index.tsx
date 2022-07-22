@@ -5,14 +5,14 @@ import {
   Select,
   SelectProps,
 } from '@mui/material'
-import { labelStyle } from './styles'
+import { FormSelectLayoutStyle, labelStyle } from './styles'
 
 export interface FormSelectProps<T> extends SelectProps {
   items: T[]
 }
 export default function FormSelect({ ...props }: FormSelectProps<any>) {
   return (
-    <Box>
+    <Box sx={FormSelectLayoutStyle}>
       <FormHelperText sx={labelStyle}>{props.label}</FormHelperText>
       <Select {...props}>
         {props.items.map(item => (

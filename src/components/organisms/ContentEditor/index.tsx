@@ -40,7 +40,6 @@ function ContentEditor({
           runningTimeProps={runningTimeProps}
           tagsProps={tagsProps}
         />
-        <Button type="submit">Submit</Button>
       </DialogContent>
     </Dialog>
   )

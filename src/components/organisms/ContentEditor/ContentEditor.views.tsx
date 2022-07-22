@@ -1,21 +1,21 @@
 import {
   Autocomplete,
   AutocompleteChangeReason,
-  AutocompleteProps,
-  AutocompleteValue,
   Box,
+  Button,
   Stack,
   TextField,
   TextFieldProps,
-  UseAutocompleteProps,
 } from '@mui/material'
 import { DesktopDatePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
 import FormHeader from 'components/atoms/FormHeader'
+import ThumbnailButton from 'components/molecules/ThumbnailButton'
 import FormSelect, { FormSelectProps } from 'components/molecules/FormSelect'
 import TimeInput, { TimeInputProps } from 'components/molecules/TimeInput'
 import { Category } from 'models/contents'
 import Strings from 'utils/constants/strings'
+import { ContentEditorLayoutStyles } from './styles'
 
 export interface TagsProps {
   value: any[]
@@ -52,23 +52,36 @@ function ContentEditorViews({
 }: ContentEditorViewsProps) {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          height: '75%',
-        }}
-      >
+      <Box sx={ContentEditorLayoutStyles}>
         <Stack spacing={2}>
           <FormHeader text={Strings.contents.DETAIL_HEADER} />
-          <FormSelect {...categoryProps} />
+          <Box
+            sx={{
+              display: 'flex',
+            }}
+          >
+            <Stack spacing={2} sx={{ flexGrow: 2 }}>
+              <FormSelect sx={{ width: '100%' }} {...categoryProps} />
 
-          {/* title */}
-          <TextField {...titleProps} />
+              {/* title */}
+              <TextField {...titleProps} />
 
-          {/* author */}
-          <TextField {...authorProps} />
+              {/* author */}
+              <TextField {...authorProps} />
+            </Stack>
+
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignContent: 'center',
+                flexGrow: 1,
+              }}
+            >
+              {/* thumbnail */}
+              <ThumbnailButton />
+            </Box>
+          </Box>
 
           {/* description */}
           <TextField multiline rows={5} {...descriptionProps} />
@@ -90,7 +103,7 @@ function ContentEditorViews({
           {/* tags */}
           <Autocomplete
             multiple
-            renderInput={params => <TextField {...params} />}
+            renderInput={params => <TextField label="tags" {...params} />}
             freeSolo
             options={[]}
             value={tagsProps.value}
@@ -99,6 +112,10 @@ function ContentEditorViews({
 
           {/* length = assets size */}
           <TextField disabled {...lengthProps} />
+
+          <Button sx={{ width: 100 }} color="primary" variant="contained">
+            등록
+          </Button>
         </Stack>
       </Box>
     </LocalizationProvider>

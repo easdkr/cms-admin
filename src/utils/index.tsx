@@ -42,3 +42,16 @@ export const formatBytes = (bytes: number, decimals = 2) => {
 export const uuidHex = () => {
   return uuidv4().replace(/-/g, '')
 }
+
+export const setImageBlob = (
+  setBlob: React.Dispatch<React.SetStateAction<string | ArrayBuffer>>,
+  file?: File,
+) => {
+  if (file) {
+    const fileReader = new FileReader()
+    fileReader.onload = () => {
+      setBlob(fileReader.result)
+    }
+    fileReader.readAsDataURL(file)
+  }
+}
